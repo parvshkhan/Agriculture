@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/acme</item>
         <item>@font/aguafina_script</item>
+        <item>@font/alef</item>
         <item>@font/alfa_slab_one</item>
         <item>@font/allerta</item>
         <item>@font/amaranth_bold</item>

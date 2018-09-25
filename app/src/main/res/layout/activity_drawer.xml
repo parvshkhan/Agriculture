@@ -76,13 +76,14 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            app:cardElevation="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imgHamburger">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <fr.ganfra.materialspinner.MaterialSpinner
                     android:id="@+id/spinner1"
@@ -98,12 +99,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:ms_arrowColor="@color/colorappmain"
-                    app:ms_highlightColor="@color/colorappmain"
-                    app:ms_hint="@string/type"
-                    app:ms_hintColor="@color/grey"
                     app:ms_baseColor="@color/white"
                     app:ms_floatingLabelColor="@color/grey"
-                    />
+                    app:ms_highlightColor="@color/colorappmain"
+                    app:ms_hint="@string/type"
+                    app:ms_hintColor="@color/grey" />
 
                 <fr.ganfra.materialspinner.MaterialSpinner
                     android:id="@+id/spinner2"
@@ -119,12 +119,11 @@
                     app:layout_constraintStart_toEndOf="@+id/spinner1"
                     app:layout_constraintTop_toTopOf="parent"
                     app:ms_arrowColor="@color/colorappmain"
-                    app:ms_highlightColor="@color/colorappmain"
-                    app:ms_hint="@string/city"
-                    app:ms_hintColor="@color/grey"
                     app:ms_baseColor="@color/white"
                     app:ms_floatingLabelColor="@color/grey"
-                    />
+                    app:ms_highlightColor="@color/colorappmain"
+                    app:ms_hint="@string/city"
+                    app:ms_hintColor="@color/grey" />
 
                 <fr.ganfra.materialspinner.MaterialSpinner
                     android:id="@+id/spinner3"
@@ -139,11 +138,11 @@
                     app:layout_constraintStart_toEndOf="@+id/spinner2"
                     app:layout_constraintTop_toTopOf="parent"
                     app:ms_arrowColor="@color/colorappmain"
+                    app:ms_baseColor="@color/white"
+                    app:ms_floatingLabelColor="@color/grey"
                     app:ms_highlightColor="@color/colorappmain"
                     app:ms_hint="@string/budget"
                     app:ms_hintColor="@color/grey"
-                    app:ms_baseColor="@color/white"
-                    app:ms_floatingLabelColor="@color/grey"
 
                     />
 

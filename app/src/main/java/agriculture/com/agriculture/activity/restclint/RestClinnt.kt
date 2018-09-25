@@ -1,12 +1,8 @@
 package agriculture.com.agriculture.activity.restclint
-import agriculture.com.agriculture.activity.adapters.PropertyList
-import agriculture.com.agriculture.activity.model.Users
-import okhttp3.ResponseBody
+import agriculture.com.agriculture.activity.modelresponse.PropertyList
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
 import retrofit2.http.POST
 
 class RestClinnt {

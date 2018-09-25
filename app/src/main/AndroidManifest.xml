@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="agriculture.com.agriculture">
-<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,23 +13,29 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.SplashActivity"
-            android:launchMode="singleInstance" >
-
-
-        </activity>
+            android:launchMode="singleTop" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".activity.MainActivity"
-
+            android:launchMode="singleTop"
             />
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.SignUpActivity"
-            android:windowSoftInputMode="stateHidden"
-            ></activity>
-        <activity android:name=".activity.DrawerActivity">
+        <activity android:name=".activity.LoginActivity"
+            android:launchMode="singleTop"
+            />
+        <activity
+            android:name=".activity.SignUpActivity"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity android:name=".activity.DrawerActivity"
+            android:launchMode="singleTop"
+           />
+
+        <activity android:name=".activity.SubListingActivity"
+            android:launchMode="singleTop"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,6 +43,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.ActivityForGetPassword"
+            android:launchMode="singleTop"
+            />
     </application>
 
 </manifest>

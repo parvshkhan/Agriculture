@@ -15,6 +15,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="forgetpassword">Forget Password ?</string>
+    <string name="forgetpassword2">Forget Password </string>
     <string name="register">REGISTER</string>
     <string name="username">UserName</string>
     <string name="cfmpassword">Confirm Password</string>
@@ -34,4 +35,11 @@
     <string name="invester">Investor</string>
     <string name="equity">Equity</string>
     <string name="daysleft">Days Left</string>
+    <string name="roi">ROI</string>
+    <string name="overview">Overview</string>
+    <string name="documents">Documents</string>
+    <string name="investcase">Investment Case</string>
+    <string name="farmdetail">Farm Detail</string>
+    <string name="buynow">Buy Now</string>
+    <string name="forgetdata">Enter the email you use for FarmPartner, and we\'ll help you create a new password.</string>
 </resources>
