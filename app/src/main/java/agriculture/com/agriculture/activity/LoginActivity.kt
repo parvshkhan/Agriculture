@@ -1,7 +1,6 @@
 package agriculture.com.agriculture.activity
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.R.id.imgBackRegister
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
@@ -27,6 +26,17 @@ class LoginActivity : BaseActivity() {
 
             finish()
         }
+
+
+        tvforgotpassword.setOnClickListener {
+
+          startActivity(Intent(this,ActivityForGetPassword::class.java))
+        }
+
+
+
+
+
 
 
         edPassword.setLongClickable(false)

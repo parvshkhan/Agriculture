@@ -12,7 +12,7 @@ data class PropertyList(
 
     data class PayLoad(
             @SerializedName("id")  val id: Int,
-            @SerializedName("name") val name: String,
+            @SerializedName("name") val name: String,  // propert name
             @SerializedName("owner") val owner: String,
             @SerializedName("owner_image_id") val ownerImageId: Int,
             @SerializedName("total_fund") val totalFund: Int,
@@ -22,7 +22,7 @@ data class PropertyList(
             @SerializedName("investment_care") val investmentCare: String,
             @SerializedName("farm_detail") val farmDetail: String,
             @SerializedName("slug") val slug: String,
-            @SerializedName("address") val address: String,
+            @SerializedName("address") val address: String,  // property address
             @SerializedName("country_id") val countryId: Int,
             @SerializedName("city_id") val cityId: Int,
             @SerializedName("state_id") val stateId: Int,

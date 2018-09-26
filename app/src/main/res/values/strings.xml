@@ -42,4 +42,7 @@
     <string name="farmdetail">Farm Detail</string>
     <string name="buynow">Buy Now</string>
     <string name="forgetdata">Enter the email you use for FarmPartner, and we\'ll help you create a new password.</string>
+    <string name="funded">Funded</string>
+    <string name="investdatagraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac fermentum neque. Praesent imperdiet, est id mattis cursus, urna libero blandit libero, a congue nunc neque eu mauris. Duis et diam in nibh eleifend hendrerit.</string>
+    <string name="submit">Submit</string>
 </resources>

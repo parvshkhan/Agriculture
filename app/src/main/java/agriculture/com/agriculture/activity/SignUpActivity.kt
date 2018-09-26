@@ -7,7 +7,6 @@ import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.MotionEvent
 import android.view.View
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignUpActivity : BaseActivity() {
@@ -24,7 +23,7 @@ class SignUpActivity : BaseActivity() {
             signUpUser();
 
         }
-        imgBackRegister.setOnClickListener {
+        imgcloseforgetpassword.setOnClickListener {
             finish()
         }
 

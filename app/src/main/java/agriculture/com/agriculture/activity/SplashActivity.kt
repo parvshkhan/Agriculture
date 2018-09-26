@@ -4,6 +4,8 @@ import agriculture.com.agriculture.R
 import agriculture.com.agriculture.activity.fragment.FragmentSplashOne
 import agriculture.com.agriculture.activity.fragment.FragmentSplashThree
 import agriculture.com.agriculture.activity.fragment.FragmentSplashTwo
+import android.animation.ValueAnimator
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -11,7 +13,9 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
 import android.view.View
+import android.widget.Button
 import kotlinx.android.synthetic.main.activity_splash.*
+
 
 class SplashActivity : BaseActivity(), ViewPager.OnPageChangeListener {
     override fun onPageScrollStateChanged(state: Int) {
@@ -21,14 +25,11 @@ class SplashActivity : BaseActivity(), ViewPager.OnPageChangeListener {
     }
 
     override fun onPageSelected(position: Int) {
-
         when (position) {
             2 ->     btNext.text = resources.getText(R.string.getstarted)
 
             else -> btNext.text = resources.getText(R.string.next)
-
         }
-
     }
 
 
@@ -36,18 +37,6 @@ class SplashActivity : BaseActivity(), ViewPager.OnPageChangeListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         setAdapter();
-        clickliteners();
-
-
-
-
-
-
-    }
-
-    private fun clickliteners() {
-
-
         btNext.setOnClickListener()
         {
             when (viewPager.currentItem) {
@@ -60,13 +49,21 @@ class SplashActivity : BaseActivity(), ViewPager.OnPageChangeListener {
                     startActivity(intent)
 
 
-
+//                    startActivity(intent,
+//                            ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
                 }
 
             }
 
         }
+
+
+
     }
+
+
+
+
 
     private fun setAdapter() {
 

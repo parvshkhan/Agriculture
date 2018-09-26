@@ -1,5 +1,6 @@
 package agriculture.com.agriculture.activity
 
+import android.content.res.ColorStateList
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 
@@ -13,9 +14,7 @@ open class BaseActivity : AppCompatActivity() {
         super.onStart()
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
-
-
-    }
+}
 
     override fun onResume() {
         super.onResume()

@@ -2,8 +2,10 @@ package agriculture.com.agriculture.activity.adapters
 
 import agriculture.com.agriculture.R
 import agriculture.com.agriculture.activity.Blur.Blur
+import agriculture.com.agriculture.activity.SubListingActivity
 import agriculture.com.agriculture.activity.modelresponse.PropertyList
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -57,7 +59,11 @@ class PropertyAdapter(dta: PropertyList) : RecyclerView.Adapter<PropertyAdapter.
 //        Picasso.get().load(dataList!!.payLoad.get(position).galleryImg).placeholder(R.drawable.ic_action_place_holder).transform(blurTransformation).into(holder.itemView.imgProperty);
 
 
+holder.itemView.btopen.setOnClickListener {
 
+    context!!.startActivity(Intent(context,SubListingActivity::class.java))
+
+}
 
 
 
