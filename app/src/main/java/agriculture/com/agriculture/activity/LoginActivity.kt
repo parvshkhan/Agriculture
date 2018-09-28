@@ -8,6 +8,7 @@ import android.text.method.PasswordTransformationMethod
 import android.view.MotionEvent
 import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
+import spencerstudios.com.bungeelib.Bungee
 
 class LoginActivity : BaseActivity() {
 
@@ -81,9 +82,10 @@ class LoginActivity : BaseActivity() {
 
     private fun loginUser() {
 
-        finish()
         var intent : Intent? = null
         intent = Intent(this,DrawerActivity::class.java)
         startActivity(intent)
+        Bungee.swipeLeft(this);  //fire the zoom animation
+        finish()
     }
 }

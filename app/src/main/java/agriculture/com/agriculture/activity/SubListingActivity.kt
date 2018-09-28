@@ -1,11 +1,16 @@
 package agriculture.com.agriculture.activity
 
 import agriculture.com.agriculture.R
+import agriculture.com.agriculture.activity.Blur.Blur
+import agriculture.com.agriculture.activity.callback.ICallback
 import agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentDetail
 import agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentDocuments
 import agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentInvestMentCase
 import agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentOverview
+import agriculture.com.agriculture.activity.modelresponse.ProprtyListingSubListing
+import agriculture.com.agriculture.activity.retrofit.RetrofitUtils
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -18,48 +23,79 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
+import com.squareup.picasso.Picasso
+import com.squareup.picasso.Transformation
 import kotlinx.android.synthetic.main.activity_sub_listing.*
 import kotlinx.android.synthetic.main.activity_sub_listing.view.*
+import retrofit2.Response
+import spencerstudios.com.bungeelib.Bungee
 
 
-class SubListingActivity : AppCompatActivity() {
+class SubListingActivity : AppCompatActivity(),ICallback {
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sub_listing)
-        imbacksublisting.setOnClickListener {
-            finish()
+
+        if(intent.hasExtra("id"))
+        {
+            val id  = intent.getIntExtra("id",2)
+            val rtData = RetrofitUtils(this)
+            rtData.getSubListData(4)
         }
 
 
-        vPager.adapter = MyAdapter(supportFragmentManager)
+        imbacksublisting.setOnClickListener {
+            finish()
 
-        tabLayout.setupWithViewPager(vPager,true)
-        tabLayout.getTabAt(0)!!.setText(getResources().getText(R.string.overview));
-        tabLayout.getTabAt(1)!!.setText(getResources().getText(R.string.documents));
-        tabLayout.getTabAt(2)!!.setText(getResources().getText(R.string.investcase));
-        tabLayout.getTabAt(3)!!.setText(getResources().getText(R.string.farmdetail));
+        }
 
-        tabLayout.addOnTabSelectedListener(this)
-        viewPager2.adapter = GalleryPagerAdapter(context = applicationContext)
-        indicator2.setViewPager(viewPager2)
+
+
 
     }
 
-    private class MyAdapter(fm: android.support.v4.app.FragmentManager) : FragmentStatePagerAdapter(fm)
+
+
+    private class MyAdapter(fm: android.support.v4.app.FragmentManager,data : PropertyListSub) : FragmentStatePagerAdapter(fm)
     {
+        val  subListData  = data
+
 
         override fun getItem(position: Int): Fragment {
 
             var fragment : Fragment ? = null
 
             when (position){
-                0-> fragment = FragmentOverview()
-                1-> fragment = FragmentDocuments()
-                2-> fragment = FragmentInvestMentCase()
-                3-> fragment = FragmentDetail()
+                0-> {
+                    val bundle  = Bundle()
+                    bundle.putParcelable("data",subListData)
+                    fragment = FragmentOverview()
+                    fragment.arguments = bundle
+                    fragment.arguments = bundle
+                }
+                1->{
+                    val bundle  = Bundle()
+                    bundle.putParcelable("data",subListData)
+                    fragment = FragmentDocuments()
+                    fragment.arguments = bundle
+                }
+                2-> {
+                    val bundle  = Bundle()
+                    bundle.putParcelable("data",subListData)
+                    fragment = FragmentInvestMentCase()
+                    fragment.arguments = bundle
+                }
+
+
+                3-> {
+                    val bundle  = Bundle()
+                    bundle.putParcelable("data",subListData)
+                    fragment = FragmentDetail()
+                    fragment.arguments = bundle
+                }
             }
             return fragment!!
         }
@@ -72,14 +108,22 @@ class SubListingActivity : AppCompatActivity() {
 
     }
 
-    private class GalleryPagerAdapter(private val context: Context) : PagerAdapter() {
+    private class GalleryPagerAdapter(private val context: Context,val imgArr:PropertyListSub) : PagerAdapter() {
 
-        internal var inflater: LayoutInflater? = null
 
-        private val GalImages = intArrayOf(R.drawable.salman, R.drawable.salman, R.drawable.salman)
+        val blurTransformation = object : Transformation {
+            override fun transform(source: Bitmap): Bitmap {
+                val blurred = Blur.fastblur(context, source, 1)
+                source.recycle()
+                return blurred
+            }
 
+            override fun key(): String {
+                return "blur()"
+            }
+        }
         override fun getCount(): Int {
-            return GalImages.size
+            return imgArr.payLoad.galleryImg.size
         }
 
         override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -91,7 +135,7 @@ class SubListingActivity : AppCompatActivity() {
 
             val imageView = v0.findViewById<ImageView>(R.id.photo_thumb)
             imageView.setScaleType(ImageView.ScaleType.FIT_XY)
-            imageView.setImageResource(GalImages[position])
+            Picasso.get().load(imgArr.payLoad.galleryImg.get(position)).into(imageView);
             container.addView(v0, 0)
             return v0
         }
@@ -101,7 +145,43 @@ class SubListingActivity : AppCompatActivity() {
         }
     }
 
+    override fun apiresponse(apiresponse: Any) {
 
+        if(apiresponse is Throwable)
+            return
+
+
+        val dataSubListing = ((apiresponse as Response<PropertyListSub>).body() as PropertyListSub)
+
+
+
+        vPager.adapter = MyAdapter(supportFragmentManager,dataSubListing)
+        tabLayout.setupWithViewPager(vPager,true)
+        tabLayout.getTabAt(0)!!.setText(getResources().getText(R.string.overview));
+        tabLayout.getTabAt(1)!!.setText(getResources().getText(R.string.documents));
+        tabLayout.getTabAt(2)!!.setText(getResources().getText(R.string.investcase));
+        tabLayout.getTabAt(3)!!.setText(getResources().getText(R.string.farmdetail));
+
+        tabLayout.addOnTabSelectedListener(this)
+
+
+
+
+
+        setGalleryImage(dataSubListing)
+
+        tvownername.text = dataSubListing!!.payLoad.owner
+        tvfarmaddress.text = dataSubListing!!.payLoad.name
+
+
+    }
+
+    private fun setGalleryImage(dataSubListing: PropertyListSub) {
+
+
+        viewPager2.adapter = GalleryPagerAdapter(context = applicationContext,imgArr = dataSubListing)
+        indicator2.setViewPager(viewPager2)
+    }
 }
 
 private fun TabLayout.addOnTabSelectedListener(subListingActivity: SubListingActivity) {

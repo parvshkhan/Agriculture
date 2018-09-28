@@ -15,6 +15,7 @@ import android.support.v4.view.ViewPager
 import android.view.View
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_splash.*
+import spencerstudios.com.bungeelib.Bungee
 
 
 class SplashActivity : BaseActivity(), ViewPager.OnPageChangeListener {
@@ -43,14 +44,12 @@ class SplashActivity : BaseActivity(), ViewPager.OnPageChangeListener {
                 0 -> { viewPager.setCurrentItem(1)    }
                 1 -> {viewPager.setCurrentItem(2)}
                 2 -> {
-                    finish()
+
                     var intent : Intent ? = null
                     intent = Intent(this,MainActivity::class.java)
                     startActivity(intent)
-
-
-//                    startActivity(intent,
-//                            ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+                    Bungee.zoom(this);  //fire the zoom animation
+                    finish()
                 }
 
             }

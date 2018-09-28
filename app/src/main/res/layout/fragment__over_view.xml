@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/tvfunded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -38,27 +38,27 @@
         android:text="33%"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView16"
+        app:layout_constraintEnd_toStartOf="@+id/tvroi"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvremainAmount" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/tvroi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="95%"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView17"
+        app:layout_constraintEnd_toStartOf="@+id/tvdaysleft"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/textView15" />
+        app:layout_constraintStart_toEndOf="@+id/tvfunded"
+        app:layout_constraintTop_toTopOf="@+id/tvfunded" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/tvdaysleft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -68,37 +68,37 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView16"
-        app:layout_constraintTop_toTopOf="@+id/textView16" />
+        app:layout_constraintStart_toEndOf="@+id/tvroi"
+        app:layout_constraintTop_toTopOf="@+id/tvroi" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/funded"
-        app:layout_constraintEnd_toEndOf="@+id/textView15"
-        app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintEnd_toEndOf="@+id/tvfunded"
+        app:layout_constraintStart_toStartOf="@+id/tvfunded"
+        app:layout_constraintTop_toBottomOf="@+id/tvfunded" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/roi"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintEnd_toEndOf="@+id/tvroi"
+        app:layout_constraintStart_toStartOf="@+id/tvroi"
+        app:layout_constraintTop_toBottomOf="@+id/tvroi" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Days Left"
-        app:layout_constraintEnd_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintEnd_toEndOf="@+id/tvdaysleft"
+        app:layout_constraintTop_toBottomOf="@+id/tvdaysleft" />
 
     <TextView
         android:id="@+id/textView21"
@@ -107,6 +107,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/investdatagraph"
         android:padding="4dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,6 +127,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/greyborder"
         android:orientation="vertical"
         android:padding="8dp"
@@ -139,6 +141,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="7.4% *"
+            android:visibility="gone"
             android:textColor="@android:color/black"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold"

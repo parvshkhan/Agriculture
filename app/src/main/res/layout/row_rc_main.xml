@@ -164,7 +164,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
                 android:ellipsize="end"
-                android:text="@string/invester"
+                android:text="@string/funded"
                 android:textAllCaps="true"
                 android:textColor="@color/grey"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -209,7 +209,8 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/heart_on" />
+                android:backgroundTint="@color/red"
+                android:background="@drawable/ic_action_heart" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageView3"

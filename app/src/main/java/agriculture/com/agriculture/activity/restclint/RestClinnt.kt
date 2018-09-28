@@ -1,9 +1,15 @@
 package agriculture.com.agriculture.activity.restclint
+import agriculture.com.agriculture.activity.PropertyListSub
+import agriculture.com.agriculture.activity.modelresponse.BlogResponse
 import agriculture.com.agriculture.activity.modelresponse.PropertyList
+import agriculture.com.agriculture.activity.modelresponse.ProprtyListingSubListing
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
+import retrofit2.http.Field
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 class RestClinnt {
 
@@ -27,4 +33,10 @@ class RestClinnt {
 interface WikiApiService {
     @POST("getAllPropertyList")
     fun getFarmList() : Call<PropertyList>
+
+    @POST("getPropertyByParticularId")
+    fun getSubFarmList(@Query("id") id: String): Call<PropertyListSub>
+
+    @POST("getAllBlogList")
+    fun getBlogList(): Call<BlogResponse>
 }

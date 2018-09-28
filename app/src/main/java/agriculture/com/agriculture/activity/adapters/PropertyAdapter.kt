@@ -4,6 +4,7 @@ import agriculture.com.agriculture.R
 import agriculture.com.agriculture.activity.Blur.Blur
 import agriculture.com.agriculture.activity.SubListingActivity
 import agriculture.com.agriculture.activity.modelresponse.PropertyList
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -14,6 +15,7 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
 import kotlinx.android.synthetic.main.row_rc_main.view.*
+import spencerstudios.com.bungeelib.Bungee
 
 
 class PropertyAdapter(dta: PropertyList) : RecyclerView.Adapter<PropertyAdapter.MyViewHolder>() {
@@ -30,17 +32,18 @@ class PropertyAdapter(dta: PropertyList) : RecyclerView.Adapter<PropertyAdapter.
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
 
         holder.itemView.tvdelaername.text = dataList!!.payLoad.get(position).name
         holder.itemView.tvamout.text= "$"+dataList!!.payLoad.get(position).totalFund.toString()
-
-//        holder.itemView.btopen.text= dataList!!.payLoad.get(position).name
         holder.itemView.tvfargmaddress.text= dataList!!.payLoad.get(position).address
-        holder.itemView.tvinvester.text= dataList!!.payLoad.get(position).owner
+        holder.itemView.tvinvester.text= dataList!!.payLoad.get(position).funded.toString()
         holder.itemView.tvroi.text= dataList!!.payLoad.get(position).roi.toString()
         holder.itemView.tvdayleft.text= dataList!!.payLoad.get(position).diffDate.toString()
+        holder.itemView.seekProgress.max = dataList!!.payLoad.get(position).totalFund.toInt()
+        holder.itemView.seekProgress.progress = dataList!!.payLoad.get(position).funded
 
 
         val blurTransformation = object : Transformation {
@@ -55,14 +58,14 @@ class PropertyAdapter(dta: PropertyList) : RecyclerView.Adapter<PropertyAdapter.
             }
         }
 
-        Picasso.get().load("http://i.imgur.com/DvpvklR.png").transform(blurTransformation).into(holder.itemView.imgProperty);
-//        Picasso.get().load(dataList!!.payLoad.get(position).galleryImg).placeholder(R.drawable.ic_action_place_holder).transform(blurTransformation).into(holder.itemView.imgProperty);
+//        Picasso.get().load("http://i.imgur.com/DvpvklR.png").transform(blurTransformation).into(holder.itemView.imgProperty);
+        Picasso.get().load(dataList!!.payLoad.get(position).galleryImg).placeholder(R.drawable.ic_action_place_holder).transform(blurTransformation).into(holder.itemView.imgProperty);
 
 
 holder.itemView.btopen.setOnClickListener {
 
-    context!!.startActivity(Intent(context,SubListingActivity::class.java))
-
+    context!!.startActivity(Intent(context,SubListingActivity::class.java).putExtra("id",dataList!!.payLoad.get(position).id))
+Bungee.zoom(context)
 }
 
 

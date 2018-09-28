@@ -9,6 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 
 import agriculture.com.agriculture.R
+import agriculture.com.agriculture.activity.PropertyListSub
+import agriculture.com.agriculture.activity.modelresponse.ProprtyListingSubListing
+import android.text.Html
+import kotlinx.android.synthetic.main.fragment_invest_ment_case.*
 
 /**
  * A simple [Fragment] subclass.
@@ -26,6 +30,13 @@ class FragmentInvestMentCase : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         return inflater.inflate(R.layout.fragment_invest_ment_case, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val data = arguments?.getParcelable<PropertyListSub>("data") as PropertyListSub
+        tvinvestdata.text = Html.fromHtml(data.payLoad.investmentCare)
     }
 
 }

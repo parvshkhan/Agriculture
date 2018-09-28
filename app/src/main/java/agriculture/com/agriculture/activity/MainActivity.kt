@@ -4,6 +4,7 @@ import agriculture.com.agriculture.R
 import android.content.Intent
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import spencerstudios.com.bungeelib.Bungee
 
 class MainActivity : BaseActivity() {
 
@@ -26,19 +27,19 @@ class MainActivity : BaseActivity() {
 
     private fun clickLogin() {
 
-        var intent: Intent?
+        val intent: Intent?
         intent = Intent(this,LoginActivity::class.java)
         startActivity(intent)
-
+        Bungee.shrink(this);  //fire the zoom animation
 
 
     }
 
     private fun clickSignUp() {
 
-        var intent: Intent?
+        val intent: Intent?
         intent = Intent(this,SignUpActivity::class.java)
         startActivity(intent)
-
+        Bungee.shrink(this);  //fire the zoom animation
     }
 }
