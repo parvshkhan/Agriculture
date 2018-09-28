@@ -33,7 +33,8 @@ class FragmentBlogs : Fragment(),ICallback {
 
     override fun apiresponse(apiresponse: Any) {
         rcBlog.adapter = BlogAdapter(((apiresponse as Response<BlogResponse>).body() as BlogResponse))
-//        DateFormat.getDateInstance(DateFormat.SHORT).format(Date(""))
+
+
 
     }
 

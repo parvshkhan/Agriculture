@@ -10,6 +10,7 @@ import agriculture.com.agriculture.activity.modelresponse.BlogResponse
 import agriculture.com.agriculture.activity.modelresponse.ProprtyListingSubListing
 import agriculture.com.agriculture.activity.restclint.RestClinnt
 import agriculture.com.agriculture.activity.restclint.WikiApiService
+import android.app.Fragment
 import android.content.Context
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,6 +29,8 @@ class RetrofitUtils(ctx: Context) {
         {
             resultDataCallback = ctx
         }
+
+
     }
 
      fun getListData() {

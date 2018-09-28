@@ -1,8 +1,11 @@
 package agriculture.com.agriculture.activity.adapters
 
 import agriculture.com.agriculture.R
+import agriculture.com.agriculture.activity.fragment.fragmentresources.FragmentBlogs
 import android.content.Context
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
+import android.view.FrameMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,6 +42,14 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
         holder.itemView.imageView2.background = null
         holder.itemView.imageView2.setImageResource(myArr[position])
 
+
+        holder.itemView.tvbloglistopen.setOnClickListener({p ->
+
+        var freg=FragmentBlogs()
+
+            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"blogfrah").commitNow()
+
+        })
 
         if (currentPosition == position) {
             val slideDown = AnimationUtils.loadAnimation(context, R.anim.dropdownanim)
