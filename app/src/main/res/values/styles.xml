@@ -9,7 +9,7 @@
         <item name="android:windowFullscreen">true</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
     </style>
-    <style name="TextLabel" parent="TextAppearance.AppCompat">
+    <style name="TextLabel" parent="Widget.Design.TextInputLayout">
         <!-- Hint color and label color in FALSE state -->
         <item name="android:textColorHint">@color/white</item>
         <item name="android:textSize">@dimen/_15ssp</item>

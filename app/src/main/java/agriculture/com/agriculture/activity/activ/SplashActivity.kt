@@ -1,11 +1,10 @@
-package agriculture.com.agriculture.activity
+package agriculture.com.agriculture.activity.activ
 
 import agriculture.com.agriculture.R
+import agriculture.com.agriculture.activity.BaseActivity
 import agriculture.com.agriculture.activity.fragment.FragmentSplashOne
 import agriculture.com.agriculture.activity.fragment.FragmentSplashThree
 import agriculture.com.agriculture.activity.fragment.FragmentSplashTwo
-import android.animation.ValueAnimator
-import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -13,7 +12,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
 import android.view.View
-import android.widget.Button
+import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_splash.*
 import spencerstudios.com.bungeelib.Bungee
 
@@ -45,11 +44,26 @@ class SplashActivity : BaseActivity(), ViewPager.OnPageChangeListener {
                 1 -> {viewPager.setCurrentItem(2)}
                 2 -> {
 
-                    var intent : Intent ? = null
-                    intent = Intent(this,MainActivity::class.java)
-                    startActivity(intent)
-                    Bungee.zoom(this);  //fire the zoom animation
-                    finish()
+
+                    if(Hawk.get<Boolean>("isFirst",true))
+                    {
+                        var intent : Intent ? = null
+                        intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        Bungee.zoom(this);  //fire the zoom animation
+                        finish()
+                    }
+                    else
+                    {
+                        var intent : Intent ? = null
+                        intent = Intent(this, DrawerActivity::class.java)
+                        startActivity(intent)
+                        Bungee.zoom(this);  //fire the zoom animation
+                        finish()
+
+                    }
+
+
                 }
 
             }

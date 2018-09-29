@@ -1,4 +1,4 @@
-package agriculture.com.agriculture.activity
+package agriculture.com.agriculture.activity.activ
 
 import agriculture.com.agriculture.R
 import android.os.Bundle

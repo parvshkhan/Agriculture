@@ -2,8 +2,7 @@ package agriculture.com.agriculture.activity.fragment.fragmentsublisting
 
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.activity.PropertyListSub
-import agriculture.com.agriculture.activity.modelresponse.ProprtyListingSubListing
+import agriculture.com.agriculture.activity.activ.PropertyListSub
 import android.graphics.Paint
 import android.os.Bundle
 import android.support.v4.app.Fragment

@@ -1,14 +1,14 @@
 package agriculture.com.agriculture.activity.adapters
 
 import agriculture.com.agriculture.R
+import agriculture.com.agriculture.R.id.drawer
+import agriculture.com.agriculture.activity.fragment.FragmentMain
 import agriculture.com.agriculture.activity.fragment.fragmentresources.FragmentBlogs
 import android.content.Context
+import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
-import android.view.FrameMetrics
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.row_drawer_items.view.*
 
@@ -45,7 +45,7 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
 
         holder.itemView.tvbloglistopen.setOnClickListener({p ->
 
-        var freg=FragmentBlogs()
+        val freg=FragmentBlogs()
 
             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"blogfrah").commitNow()
 
@@ -75,6 +75,16 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
                             currentPosition = position
 
                             notifyDataSetChanged()
+                        }
+
+
+
+                        if(position == 2)
+                        {
+
+                            val frag : FragmentMain? = FragmentMain()
+
+                            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"mainfrag").commit()
                         }
                     }
             )

@@ -1,4 +1,4 @@
-package agriculture.com.agriculture.activity
+package agriculture.com.agriculture.activity.activ
 
 import agriculture.com.agriculture.R
 import agriculture.com.agriculture.activity.Blur.Blur
@@ -7,7 +7,6 @@ import agriculture.com.agriculture.activity.fragment.fragmentsublisting.Fragment
 import agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentDocuments
 import agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentInvestMentCase
 import agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentOverview
-import agriculture.com.agriculture.activity.modelresponse.ProprtyListingSubListing
 import agriculture.com.agriculture.activity.retrofit.RetrofitUtils
 import android.content.Context
 import android.graphics.Bitmap
@@ -28,7 +27,6 @@ import com.squareup.picasso.Transformation
 import kotlinx.android.synthetic.main.activity_sub_listing.*
 import kotlinx.android.synthetic.main.activity_sub_listing.view.*
 import retrofit2.Response
-import spencerstudios.com.bungeelib.Bungee
 
 
 class SubListingActivity : AppCompatActivity(),ICallback {
@@ -108,7 +106,7 @@ class SubListingActivity : AppCompatActivity(),ICallback {
 
     }
 
-    private class GalleryPagerAdapter(private val context: Context,val imgArr:PropertyListSub) : PagerAdapter() {
+    private class GalleryPagerAdapter(private val context: Context,val imgArr: PropertyListSub) : PagerAdapter() {
 
 
         val blurTransformation = object : Transformation {
@@ -155,7 +153,7 @@ class SubListingActivity : AppCompatActivity(),ICallback {
 
 
 
-        vPager.adapter = MyAdapter(supportFragmentManager,dataSubListing)
+        vPager.adapter = MyAdapter(supportFragmentManager, dataSubListing)
         tabLayout.setupWithViewPager(vPager,true)
         tabLayout.getTabAt(0)!!.setText(getResources().getText(R.string.overview));
         tabLayout.getTabAt(1)!!.setText(getResources().getText(R.string.documents));
@@ -179,7 +177,7 @@ class SubListingActivity : AppCompatActivity(),ICallback {
     private fun setGalleryImage(dataSubListing: PropertyListSub) {
 
 
-        viewPager2.adapter = GalleryPagerAdapter(context = applicationContext,imgArr = dataSubListing)
+        viewPager2.adapter = GalleryPagerAdapter(context = applicationContext, imgArr = dataSubListing)
         indicator2.setViewPager(viewPager2)
     }
 }

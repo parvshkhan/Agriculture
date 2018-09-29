@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,10 +34,10 @@
 
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgProperty" />
+                app:layout_constraintTop_toBottomOf="@+id/imgblogimage" />
 
             <ImageView
-                android:id="@+id/imgProperty"
+                android:id="@+id/imgblogimage"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_120sdp"
                 android:background="@drawable/default_image_thumbnail"
@@ -61,8 +63,8 @@
                 android:layout_marginStart="8dp"
                 android:text="By Rolland"
 
-                android:textSize="@dimen/_10ssp"
                 android:textColor="@color/grey"
+                android:textSize="@dimen/_10ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                 app:layout_constraintStart_toEndOf="@+id/imageView7"
                 app:layout_constraintTop_toTopOf="@+id/imageView7" />
@@ -72,11 +74,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:background="@drawable/chatting"
                 android:backgroundTint="@android:color/black"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvbloggername"
                 app:layout_constraintStart_toEndOf="@+id/tvbloggername"
-                app:layout_constraintTop_toTopOf="@+id/tvbloggername"
-                android:background="@drawable/chatting" />
+                app:layout_constraintTop_toTopOf="@+id/tvbloggername" />
 
             <TextView
                 android:id="@+id/tvmessage"
@@ -84,8 +87,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="987"
-                android:textSize="@dimen/_10ssp"
                 android:textColor="@color/grey"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView12"
                 app:layout_constraintStart_toEndOf="@+id/imageView12"
                 app:layout_constraintTop_toTopOf="@+id/imageView12" />
@@ -112,9 +116,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="8dp"
-                android:textSize="@dimen/_8ssp"
                 android:text="@string/readmore"
                 android:textColor="@android:color/black"
+                android:textSize="@dimen/_8ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -125,18 +129,18 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@color/colorappmain"
+                android:gravity="center"
                 android:orientation="vertical"
                 android:padding="4dp"
-                android:gravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout android:layout_width="@dimen/_60sdp"
+                <LinearLayout
+                    android:layout_width="@dimen/_60sdp"
                     android:layout_height="@dimen/_60sdp"
-                    android:orientation="vertical"
-                    android:gravity="center"
                     android:background="@drawable/dotted"
-                    >
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView30"
@@ -147,7 +151,8 @@
                         android:gravity="center"
                         android:text="TextView"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold" />
 
                     <View
                         android:id="@+id/view2"
@@ -166,7 +171,8 @@
                         android:gravity="center"
                         android:text="TextView"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
 

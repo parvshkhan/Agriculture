@@ -4,7 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="agriculture.com.agriculture.activity.fragment.fragmentresources.FragmentBlogs">
+    <View
+        android:id="@+id/view"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorappmain"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imgHamburger"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/greenround"
+        android:padding="8dp"
+        android:src="@drawable/ic_action_hamburger"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/textView23"

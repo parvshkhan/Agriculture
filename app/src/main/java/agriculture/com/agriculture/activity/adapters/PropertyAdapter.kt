@@ -2,7 +2,7 @@ package agriculture.com.agriculture.activity.adapters
 
 import agriculture.com.agriculture.R
 import agriculture.com.agriculture.activity.Blur.Blur
-import agriculture.com.agriculture.activity.SubListingActivity
+import agriculture.com.agriculture.activity.activ.SubListingActivity
 import agriculture.com.agriculture.activity.modelresponse.PropertyList
 import android.annotation.SuppressLint
 import android.content.Context
@@ -59,12 +59,12 @@ class PropertyAdapter(dta: PropertyList) : RecyclerView.Adapter<PropertyAdapter.
         }
 
 //        Picasso.get().load("http://i.imgur.com/DvpvklR.png").transform(blurTransformation).into(holder.itemView.imgProperty);
-        Picasso.get().load(dataList!!.payLoad.get(position).galleryImg).placeholder(R.drawable.ic_action_place_holder).transform(blurTransformation).into(holder.itemView.imgProperty);
+        Picasso.get().load(dataList!!.payLoad.get(position).galleryImg).placeholder(R.drawable.ic_action_place_holder).transform(blurTransformation).into(holder.itemView.imgblogimage);
 
 
 holder.itemView.btopen.setOnClickListener {
 
-    context!!.startActivity(Intent(context,SubListingActivity::class.java).putExtra("id",dataList!!.payLoad.get(position).id))
+    context!!.startActivity(Intent(context, SubListingActivity::class.java).putExtra("id",dataList!!.payLoad.get(position).id))
 Bungee.zoom(context)
 }
 

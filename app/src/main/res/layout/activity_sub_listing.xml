@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="agriculture.com.agriculture.activity.SubListingActivity">
+    tools:context="agriculture.com.agriculture.activity.activ.SubListingActivity">
 
 
     <android.support.v4.view.ViewPager

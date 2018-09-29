@@ -1,6 +1,7 @@
-package agriculture.com.agriculture.activity
+package agriculture.com.agriculture.activity.activ
 
 import agriculture.com.agriculture.R
+import agriculture.com.agriculture.activity.BaseActivity
 import android.content.Intent
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,7 +29,7 @@ class MainActivity : BaseActivity() {
     private fun clickLogin() {
 
         val intent: Intent?
-        intent = Intent(this,LoginActivity::class.java)
+        intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         Bungee.shrink(this);  //fire the zoom animation
 
@@ -38,7 +39,7 @@ class MainActivity : BaseActivity() {
     private fun clickSignUp() {
 
         val intent: Intent?
-        intent = Intent(this,SignUpActivity::class.java)
+        intent = Intent(this, SignUpActivity::class.java)
         startActivity(intent)
         Bungee.shrink(this);  //fire the zoom animation
     }

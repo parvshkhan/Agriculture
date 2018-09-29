@@ -1,13 +1,12 @@
 package agriculture.com.agriculture.activity.restclint
-import agriculture.com.agriculture.activity.PropertyListSub
+import agriculture.com.agriculture.activity.activ.PropertyListSub
 import agriculture.com.agriculture.activity.modelresponse.BlogResponse
+import agriculture.com.agriculture.activity.modelresponse.LoginResponse
 import agriculture.com.agriculture.activity.modelresponse.PropertyList
-import agriculture.com.agriculture.activity.modelresponse.ProprtyListingSubListing
+import agriculture.com.agriculture.activity.modelresponse.SignUpResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.Field
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -39,4 +38,10 @@ interface WikiApiService {
 
     @POST("getAllBlogList")
     fun getBlogList(): Call<BlogResponse>
+
+    @POST("signin")
+    fun getLoginResponse(@Query("email") email: String,@Query("password") password: String): Call<LoginResponse>
+
+    @POST("signup")
+    fun getSignUpResponse(@Query("first_name") username: String,@Query("email") email: String,@Query("password") password: String): Call<SignUpResponse>
 }

@@ -31,10 +31,10 @@
                 android:textColor="@color/grey"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgProperty" />
+                app:layout_constraintTop_toBottomOf="@+id/imgblogimage" />
 
             <ImageView
-                android:id="@+id/imgProperty"
+                android:id="@+id/imgblogimage"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_120sdp"
                 android:background="@drawable/default_image_thumbnail"

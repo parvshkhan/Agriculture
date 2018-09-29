@@ -1,7 +1,5 @@
 package agriculture.com.agriculture.activity.fragment.fragmentsublisting
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.activity.PropertyListSub
-import agriculture.com.agriculture.activity.modelresponse.ProprtyListingSubListing
+import agriculture.com.agriculture.activity.activ.PropertyListSub
 import android.text.Html
 import kotlinx.android.synthetic.main.fragment_invest_ment_case.*
 

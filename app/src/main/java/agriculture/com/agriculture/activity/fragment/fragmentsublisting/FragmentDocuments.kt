@@ -8,11 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.activity.PropertyListSub
-import agriculture.com.agriculture.activity.modelresponse.ProprtyListingSubListing
-import android.text.Html
-import kotlinx.android.synthetic.main.fragment_detail.*
-import kotlinx.android.synthetic.main.fragment_documents.*
+import agriculture.com.agriculture.activity.activ.PropertyListSub
 
 
 /**
