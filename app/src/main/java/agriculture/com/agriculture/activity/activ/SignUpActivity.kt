@@ -1,7 +1,7 @@
 package agriculture.com.agriculture.activity.activ
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.activity.BaseActivity
+import agriculture.com.agriculture.activity.Extra.BaseActivity
 import agriculture.com.agriculture.activity.modelresponse.SignUpResponse
 import agriculture.com.agriculture.activity.restclint.RestClinnt
 import agriculture.com.agriculture.activity.restclint.WikiApiService
@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_signup.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import spencerstudios.com.bungeelib.Bungee
 
 class SignUpActivity : BaseActivity() {
 
@@ -29,22 +28,14 @@ class SignUpActivity : BaseActivity() {
         setContentView(R.layout.activity_signup)
 
         btRegister.setOnClickListener {
-
             signUpUser();
-
         }
         imgcloseforgetpassword.setOnClickListener {
             finish()
         }
 
-
-
-
-
         rguserPassword.isLongClickable = false
         rgusercfmPassword.isLongClickable =false
-
-
 
         rguserPassword.setOnTouchListener(View.OnTouchListener { v, event ->
             val DRAWABLE_LEFT = 0
@@ -79,8 +70,6 @@ class SignUpActivity : BaseActivity() {
             }
             false
         })
-
-
         rgusercfmPassword.setOnTouchListener(View.OnTouchListener { v, event ->
             val DRAWABLE_LEFT = 0
             val DRAWABLE_TOP = 1
@@ -112,7 +101,6 @@ class SignUpActivity : BaseActivity() {
             }
             false
         })
-
 
     }
 
@@ -174,7 +162,7 @@ class SignUpActivity : BaseActivity() {
 
         api.getSignUpResponse(username,email,password).enqueue(object : Callback<SignUpResponse> {
             override fun onFailure(call: Call<SignUpResponse>?, t: Throwable?) {
-
+Toast.makeText(applicationContext,t.toString(),Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<SignUpResponse>?, response: Response<SignUpResponse>?) {
@@ -183,7 +171,7 @@ class SignUpActivity : BaseActivity() {
                     Hawk.put<Boolean>("isFirst",false)
                     Hawk.put("name",response.body()!!.payLoad.firstName)
                     Hawk.put("email",response.body()!!.payLoad.email)
-
+                    Hawk.put("id",response.body()!!.payLoad.id)
 
                     var intent : Intent? = null
                     intent = Intent(applicationContext, DrawerActivity::class.java)

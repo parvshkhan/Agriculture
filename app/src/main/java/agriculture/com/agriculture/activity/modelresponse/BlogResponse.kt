@@ -12,11 +12,10 @@ data class BlogResponse(
 
     data class Payload(
             @SerializedName("id") val id: Int,
-            @SerializedName("post_by") val postBy: Int,
+            @SerializedName("post_by") val postBy: String,
             @SerializedName("title") val title: String,
             @SerializedName("description") val description: String,
             @SerializedName("created_at") val createdAt: String,
-            @SerializedName("image") val image: String,
-            @SerializedName("postBy") val postBy1: String
+            @SerializedName("image") val image: String
     )
 }

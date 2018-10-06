@@ -1,10 +1,10 @@
 package agriculture.com.agriculture.activity.activ
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.activity.BaseActivity
-import agriculture.com.agriculture.activity.fragment.FragmentSplashOne
-import agriculture.com.agriculture.activity.fragment.FragmentSplashThree
-import agriculture.com.agriculture.activity.fragment.FragmentSplashTwo
+import agriculture.com.agriculture.activity.Extra.BaseActivity
+import agriculture.com.agriculture.activity.fragment.splashfragment.FragmentSplashOne
+import agriculture.com.agriculture.activity.fragment.splashfragment.FragmentSplashThree
+import agriculture.com.agriculture.activity.fragment.splashfragment.FragmentSplashTwo
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment

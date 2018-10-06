@@ -1,4 +1,4 @@
-package agriculture.com.agriculture.activity.fragment
+package agriculture.com.agriculture.activity.fragment.splashfragment
 
 
 import android.os.Bundle

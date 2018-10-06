@@ -1,7 +1,7 @@
 package agriculture.com.agriculture.activity.activ
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.activity.BaseActivity
+import agriculture.com.agriculture.activity.Extra.BaseActivity
 import android.content.Intent
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*

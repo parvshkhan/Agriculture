@@ -57,4 +57,17 @@
     <string name="blog">Blog</string>
     <string name="close">CLOSE</string>
     <string name="readmore"><![CDATA[READ MORE >]]></string>
+    <string name="entertheotp">Please check your mail for OTP !</string>
+    <string name="otp">Enter OTP</string>
+    <string name="pleaseenterpassword">Please enter the Password to reset</string>
+    <string name="confirmpassword">Confirm Password</string>
+    <string name="editprofile">EDIT PROFILE</string>
+    <string name="aboutprofile">ABOUT PROFILE</string>
+    <string name="fname">First Name</string>
+    <string name="update">update</string>
+    <string name="phone">Phone No.</string>
+    <string name="address">Address</string>
+    <string name="name">Name</string>
+    <string name="join">Join</string>
+    <string name="eventdetail">Event Detail</string>
 </resources>

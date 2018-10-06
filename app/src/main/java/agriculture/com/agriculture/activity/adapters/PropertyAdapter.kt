@@ -58,15 +58,14 @@ class PropertyAdapter(dta: PropertyList) : RecyclerView.Adapter<PropertyAdapter.
             }
         }
 
-//        Picasso.get().load("http://i.imgur.com/DvpvklR.png").transform(blurTransformation).into(holder.itemView.imgProperty);
         Picasso.get().load(dataList!!.payLoad.get(position).galleryImg).placeholder(R.drawable.ic_action_place_holder).transform(blurTransformation).into(holder.itemView.imgblogimage);
 
 
-holder.itemView.btopen.setOnClickListener {
+        holder.itemView.btopen.setOnClickListener {
 
-    context!!.startActivity(Intent(context, SubListingActivity::class.java).putExtra("id",dataList!!.payLoad.get(position).id))
-Bungee.zoom(context)
-}
+            context!!.startActivity(Intent(context, SubListingActivity::class.java).putExtra("id",dataList!!.payLoad.get(position).id))
+            Bungee.zoom(context)
+        }
 
 
 

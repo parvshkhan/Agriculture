@@ -30,7 +30,6 @@ class RetrofitUtils(ctx: Context) {
 
 
     fun getSubListData(id: Int) {
-
         val api = RestClinnt.create<WikiApiService>(WikiApiService::class.java)
 
         api.getSubFarmList(id.toString()).enqueue(object : Callback<PropertyListSub> {

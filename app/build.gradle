@@ -53,4 +53,11 @@ dependencies {
     implementation 'com.jjoe64:graphview:4.2.2'
     implementation 'com.github.Binary-Finery:Bungee:master-SNAPSHOT'
     implementation "com.orhanobut:hawk:2.0.1"
+    compile 'com.mindorks:paracamera:0.2.2'
 }
+
+
+
+
+
+

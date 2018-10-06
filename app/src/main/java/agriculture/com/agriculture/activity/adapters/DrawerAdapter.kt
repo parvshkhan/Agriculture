@@ -3,7 +3,9 @@ package agriculture.com.agriculture.activity.adapters
 import agriculture.com.agriculture.R
 import agriculture.com.agriculture.R.id.drawer
 import agriculture.com.agriculture.activity.fragment.FragmentMain
+import agriculture.com.agriculture.activity.fragment.FragmentMyAccount
 import agriculture.com.agriculture.activity.fragment.fragmentresources.FragmentBlogs
+import agriculture.com.agriculture.activity.fragment.fragmentresources.FragmentEvents
 import android.content.Context
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
@@ -51,6 +53,15 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
 
         })
 
+           holder.itemView.tvEventOpen.setOnClickListener({p ->
+
+        val freg=FragmentEvents()
+
+            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"eventfrag").commitNow()
+
+        })
+
+
         if (currentPosition == position) {
             val slideDown = AnimationUtils.loadAnimation(context, R.anim.dropdownanim)
             holder.itemView.clChild.setVisibility(View.VISIBLE)
@@ -85,6 +96,15 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
                             val frag : FragmentMain? = FragmentMain()
 
                             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"mainfrag").commit()
+                        }
+
+
+                        if(position == 0 )
+                        {
+//                            FragmentMyAccount
+                            val frag : FragmentMyAccount? = FragmentMyAccount()
+                            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"accntfrag").commit()
+
                         }
                     }
             )

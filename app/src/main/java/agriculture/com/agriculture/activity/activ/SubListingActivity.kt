@@ -22,6 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
+import android.widget.Toast
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
 import kotlinx.android.synthetic.main.activity_sub_listing.*
@@ -41,13 +42,12 @@ class SubListingActivity : AppCompatActivity(),ICallback {
         {
             val id  = intent.getIntExtra("id",2)
             val rtData = RetrofitUtils(this)
-            rtData.getSubListData(4)
+            rtData.getSubListData(id)
         }
 
 
         imbacksublisting.setOnClickListener {
             finish()
-
         }
 
 
@@ -145,9 +145,10 @@ class SubListingActivity : AppCompatActivity(),ICallback {
 
     override fun apiresponse(apiresponse: Any) {
 
-        if(apiresponse is Throwable)
+        if(apiresponse is Throwable) {
+            Toast.makeText(applicationContext,(apiresponse as Throwable).toString(),Toast.LENGTH_SHORT).show()
             return
-
+        }
 
         val dataSubListing = ((apiresponse as Response<PropertyListSub>).body() as PropertyListSub)
 

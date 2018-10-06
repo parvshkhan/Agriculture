@@ -38,7 +38,7 @@ class BlogAdapter(blogList: BlogResponse) : RecyclerView.Adapter<BlogAdapter.MyV
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
 
-        holder.itemView.tvblogtitile.text=dataList!!.payload.get(position).postBy1
+        holder.itemView.tvblogtitile.text=dataList!!.payload.get(position).postBy
         holder.itemView.tvbloggername.text= dataList!!.payload.get(position).title
         holder.itemView.textView26.text= Html.fromHtml(dataList!!.payload.get(position).description)
 

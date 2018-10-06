@@ -25,9 +25,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-/**
- * A simple [Fragment] subclass.
- */
 class FragmentMain : Fragment() {
 
 
@@ -51,8 +48,6 @@ class FragmentMain : Fragment() {
 
         (activity!!.findViewById<View>(R.id.drawer)as DrawerLayout).closeDrawer(Gravity.START)
 
-
-
         imgHamburger.setOnClickListener {
             activity!!.findViewById<DrawerLayout>(R.id.drawer).openDrawer(Gravity.START)
         }
@@ -61,12 +56,6 @@ class FragmentMain : Fragment() {
         activity!!.findViewById<ImageView>(R.id.imgCloseDrawer2).setOnClickListener {
             activity!!.findViewById<DrawerLayout>(R.id.drawer).closeDrawer(Gravity.START)
         }
-
-
-
-
-
-
 
         adapter = ArrayAdapter(activity, android.R.layout.simple_spinner_item, ITEMS)
         adapter!!.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -101,4 +90,4 @@ class FragmentMain : Fragment() {
     }
 
 
-}// Required empty public constructor
+}
