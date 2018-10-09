@@ -20,7 +20,6 @@ import kotlinx.android.synthetic.main.row_event.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class EventListAdapter(evenlist: EventResponse) : RecyclerView.Adapter<EventListAdapter.MyViewHolder>() {
 
     var dataList : EventResponse? = evenlist
@@ -76,15 +75,7 @@ class EventListAdapter(evenlist: EventResponse) : RecyclerView.Adapter<EventList
 
         val delegate = "hh:mm a"
 
-
-
-
         holder.itemView.tveventtime.text= DateFormat.format(delegate, cTime1).toString() + "-"+  DateFormat.format(delegate, cTime2)
-
-
-
-
-
 
 
 
@@ -114,20 +105,13 @@ class EventListAdapter(evenlist: EventResponse) : RecyclerView.Adapter<EventList
 
 
         holder.itemView.btJoin.setOnClickListener {
-
-            //            context!!.startActivity(Intent(context,EventSubEventListingActivity::class.java).putExtra("id",dataList!!.payload.get(position).id))
+            // context!!.startActivity(Intent(context,EventSubEventListingActivity::class.java).putExtra("id",dataList!!.payload.get(position).id))
             val freg= FragmentSubListingEvent()
             val bundle : Bundle
             bundle = Bundle()
             bundle.putInt("id",dataList!!.payload.get(position).id)
             freg.arguments = bundle
             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"eventsublisting").addToBackStack(null).commit()
-
-
-
-
-
-
         }
 
 
