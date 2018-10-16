@@ -52,7 +52,7 @@
     <string name="hiw">How it works</string>
     <string name="events">Events</string>
     <string name="blogs">Blogs</string>
-    <string name="knowledgebar">Knowledge Bar</string>
+    <string name="knowledgebar">Knowledge Base</string>
     <string name="selltous">Sell to us</string>
     <string name="blog">Blog</string>
     <string name="close">CLOSE</string>
@@ -70,4 +70,11 @@
     <string name="name">Name</string>
     <string name="join">Join</string>
     <string name="eventdetail">Event Detail</string>
+    <string name="learnmore">Learn More</string>
+    <string name="introduction">Introduction</string>
+    <string name="hiworks">How it works</string>
+    <string name="farmtypes">Farm Types</string>
+    <string name="yraccnt">Your Account</string>
+    <string name="regulationandpolicies"><![CDATA[Regulation & \n Policies]]></string>
+    <string name="faqandglossary"><![CDATA[FAQ & Glossary]]></string>
 </resources>

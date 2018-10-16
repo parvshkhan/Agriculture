@@ -14,22 +14,13 @@
         android:id="@+id/drawercontainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/semigrey">
-
-
-
-
-    </FrameLayout>
-
-
+        android:background="@color/semigrey"/>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="@dimen/_250sdp"
         android:layout_height="match_parent"
         android:layout_gravity = "start"
-        android:background="@android:color/transparent"
-
-        >
+        android:background="@android:color/transparent">
 
         <include
             layout="@layout/drawer_content_two"

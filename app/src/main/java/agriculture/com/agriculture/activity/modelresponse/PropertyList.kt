@@ -20,6 +20,13 @@ data class PropertyList(
             @SerializedName("ownerImg") val ownerImg: String,
             @SerializedName("galleryImg") val galleryImg: String,
             @SerializedName("diffDate") val diffDate: Int,
-            @SerializedName("funded") val funded: Int
+            @SerializedName("funded") val funded: Int,
+            @SerializedName("target") val target: Int,
+            @SerializedName("wishlistId") val wishlist: Int
+
+
+
+
+
     )
 }

@@ -43,8 +43,6 @@ import java.io.File
 
 class FragmentMyAccount : Fragment() {
 
-
-
     val TAKE_PHOTO_REQUEST = 10
     val RESULT_LOAD_IMAGE = 20
     var filePath : File ? =null

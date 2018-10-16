@@ -41,12 +41,9 @@ class DrawerActivity : AppCompatActivity(){
 
         val frag : FragmentMain? = FragmentMain()
 
-        supportFragmentManager.beginTransaction().add(R.id.drawercontainer,frag,"mainfrag").commit()
+        supportFragmentManager.beginTransaction().add(R.id.drawercontainer,frag,"mainfrag").addToBackStack(null).commit()
 
         setdefaultValue()
-
-
-
 
 
     }
@@ -59,10 +56,8 @@ class DrawerActivity : AppCompatActivity(){
 
         if(name!=null && email !=null){
             textView5.text = name
-            textView6.text = email}
-
-
-
+            textView6.text = email
+        }
 
     }
 

@@ -17,6 +17,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Toast
+import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_drawer.*
 import kotlinx.android.synthetic.main.drawer_content_two.*
 import kotlinx.android.synthetic.main.fragment_fragment_main.*
@@ -76,7 +77,7 @@ class FragmentMain : Fragment() {
 
         val api = RestClinnt.create<WikiApiService>(WikiApiService::class.java)
 
-        api.getFarmList().enqueue(object : Callback<PropertyList> {
+        api.getFarmList(Hawk.get("id")).enqueue(object : Callback<PropertyList> {
             override fun onFailure(call: Call<PropertyList>?, t: Throwable?) {
 
 

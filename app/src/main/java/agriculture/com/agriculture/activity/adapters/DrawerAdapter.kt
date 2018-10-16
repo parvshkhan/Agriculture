@@ -2,8 +2,7 @@ package agriculture.com.agriculture.activity.adapters
 
 import agriculture.com.agriculture.R
 import agriculture.com.agriculture.R.id.drawer
-import agriculture.com.agriculture.activity.fragment.FragmentMain
-import agriculture.com.agriculture.activity.fragment.FragmentMyAccount
+import agriculture.com.agriculture.activity.fragment.*
 import agriculture.com.agriculture.activity.fragment.fragmentresources.FragmentBlogs
 import agriculture.com.agriculture.activity.fragment.fragmentresources.FragmentEvents
 import android.content.Context
@@ -53,7 +52,8 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
 
         })
 
-           holder.itemView.tvEventOpen.setOnClickListener({p ->
+
+       holder.itemView.tvEventOpen.setOnClickListener({p ->
 
         val freg=FragmentEvents()
 
@@ -61,16 +61,23 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
 
         })
 
+        holder.itemView.tvknowledgebase.setOnClickListener({p->
+            val freg=FragmentKnowledgeBase()
+            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"knowledgefrag").commitNow()
+
+        }
+     )
+
+
+
+
 
         if (currentPosition == position) {
             val slideDown = AnimationUtils.loadAnimation(context, R.anim.dropdownanim)
             holder.itemView.clChild.setVisibility(View.VISIBLE)
             holder.itemView.clChild.startAnimation(slideDown)
-
             holder.itemView.imageView6.rotation = 270f
-
-
-        }
+            }
 
 
             holder.itemView.ccParent.setOnClickListener(
@@ -94,18 +101,31 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
                         {
 
                             val frag : FragmentMain? = FragmentMain()
-
                             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"mainfrag").commit()
                         }
 
 
                         if(position == 0 )
                         {
-//                            FragmentMyAccount
                             val frag : FragmentMyAccount? = FragmentMyAccount()
                             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"accntfrag").commit()
 
                         }
+
+                        if(position == 1)
+                        {
+                            val frag : FragmentInvestmentPlans? = FragmentInvestmentPlans()
+                            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"investmentplanfrag").commit()
+
+
+                        }
+
+                        if(position == 5)
+                        {
+                            val frag : FragmentWishList? = FragmentWishList()
+                            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"wishlistfrag").commit()
+                        }
+
                     }
             )
 

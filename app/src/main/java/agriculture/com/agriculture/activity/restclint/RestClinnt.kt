@@ -10,8 +10,8 @@ import retrofit2.http.*
 class RestClinnt {
 
     companion object Factory {
-        val ROOT_URL = "http://192.168.0.40/Agricultural_project/public/api/"
-//        val ROOT_URL = "http://smartit.ventures/farm/Agricultural_project/public/api/"
+//        val ROOT_URL = "http://192.168.0.40/Agricultural_project/public/api/"
+        val ROOT_URL = "http://smartit.ventures/farm/Agricultural_project/public/api/"
         fun <T> create(java: Class<WikiApiService>): WikiApiService {
             val retrofit = Retrofit.Builder()
 //                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -27,7 +27,7 @@ class RestClinnt {
 
 interface WikiApiService {
     @POST("getAllPropertyList")
-    fun getFarmList() : Call<PropertyList>
+    fun getFarmList(@Query("id") id: String) : Call<PropertyList>
 
     @POST("getPropertyByParticularId")
     fun getSubFarmList(@Query("id") id: String): Call<PropertyListSub>
