@@ -2,9 +2,9 @@ package agriculture.com.agriculture.activity.fragment.fragmentsublisting
 
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.activity.activ.PropertyListSub
+import agriculture.com.agriculture.activity.modelresponse.PropertyListSub
+import android.content.Context
 import android.graphics.Paint
-import android.opengl.Visibility
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.text.Html
@@ -16,14 +16,16 @@ import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 import kotlinx.android.synthetic.main.fragment__over_view.*
 import com.jjoe64.graphview.helper.StaticLabelsFormatter
-
-
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 class FragmentOverview : Fragment() {
 
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(CalligraphyContextWrapper.wrap(context))
 
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
@@ -38,8 +40,8 @@ class FragmentOverview : Fragment() {
         progressBar.max = data.payLoad.totalFund
         progressBar.progress= data.payLoad.funded
 
-        tvfunded.text = data.payLoad.funded.toString()
-        tvroi.text = data.payLoad.roi.toString()
+        tvfunded.text = data.payLoad.funded.toString() + "%"
+        tvroi.text = data.payLoad.roi.toString()+ "%"
         tvdaysleft.text = data.payLoad.diffDate.toString()
         tvremainAmount.text = Html.fromHtml("<strong><font color=black>$"+data.payLoad.funded+"</font></strong> raised of $<strong><font color=black>"+data.payLoad.totalFund+"</font></strong>")
 
@@ -76,10 +78,18 @@ class FragmentOverview : Fragment() {
             series.isDrawDataPoints = true
             series.dataPointsRadius = 10f
             series.setAnimated(true)
+            graphView.getViewport().setScrollable(true); // enables horizontal scrolling
+            graphView.getViewport().setScrollableY(true); // enables vertical scrolling
+            graphView.getViewport().setScalable(true); // enables horizontal zooming and scrolling
+            graphView.getViewport().setScalableY(true); // enables vertical zooming and scrolling
+            graphView.getGridLabelRenderer().setHumanRounding(false);
+//            graphView.getGridLabelRenderer().setNumHorizontalLabels(8);
+            graphView.getGridLabelRenderer().setTextSize(22f);
+            graphView.getGridLabelRenderer().reloadStyles();
         } catch (e: Exception) {
             e.printStackTrace()
             tvgraphData.visibility = View.VISIBLE
-            tvgraphData.setText("Graph Data Not Availble")
+            tvgraphData.setText("Graph Data Not Available")
             graphView.visibility  = View.INVISIBLE
         }
 

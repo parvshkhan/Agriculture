@@ -32,11 +32,11 @@
             android:layout_marginBottom="24dp"
             android:background="@drawable/radiusleftnext"
             android:drawableRight="@drawable/ic_action_right"
-            android:fontFamily="serif"
-            android:paddingLeft="@dimen/_20sdp"
             android:text="@string/next"
+            android:gravity="center"
             android:textColor="@color/colorappmain"
             android:textSize="@dimen/_15sdp"
+            android:padding="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

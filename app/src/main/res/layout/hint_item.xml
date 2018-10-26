@@ -5,6 +5,7 @@
     android:paddingLeft="0dp"
     android:background="@color/colorPrimaryDark"
     android:singleLine="true"
+    fontPath="fonts/opensansparagraph.ttf"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:ellipsize="marquee"

@@ -5,6 +5,7 @@ import agriculture.com.agriculture.activity.adapters.BlogAdapter
 import agriculture.com.agriculture.activity.modelresponse.BlogResponse
 import agriculture.com.agriculture.activity.restclint.RestClinnt
 import agriculture.com.agriculture.activity.restclint.WikiApiService
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.DrawerLayout
@@ -19,9 +20,15 @@ import kotlinx.android.synthetic.main.fragment_fragment_blogs.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 class FragmentBlogs : Fragment() {
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(CalligraphyContextWrapper.wrap(context))
+
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

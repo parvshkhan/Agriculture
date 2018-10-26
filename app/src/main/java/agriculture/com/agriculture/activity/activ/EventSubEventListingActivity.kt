@@ -5,6 +5,7 @@ import agriculture.com.agriculture.activity.Blur.Blur
 import agriculture.com.agriculture.activity.modelresponse.EventSubLIstingResponse
 import agriculture.com.agriculture.activity.restclint.RestClinnt
 import agriculture.com.agriculture.activity.restclint.WikiApiService
+import android.content.Context
 import android.graphics.Bitmap
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -18,13 +19,16 @@ import kotlinx.android.synthetic.main.row_event.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.text.SimpleDateFormat
 import java.util.*
 
 class EventSubEventListingActivity : AppCompatActivity() {
 
     var id : Int? = null
-
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_sub_event_listing)
@@ -142,7 +146,7 @@ class EventSubEventListingActivity : AppCompatActivity() {
                         }
                     }
 
-                    Picasso.get().load(response!!.body()!!.payload.image).placeholder(R.drawable.ic_action_place_holder).transform(blurTransformation).into(imgeventimagesub);
+                    Picasso.get().load(response!!.body()!!.payload.image).placeholder(R.drawable.ic_action_place_holder).into(imgeventimagesub);
 
 
 

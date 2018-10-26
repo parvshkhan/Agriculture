@@ -15,18 +15,16 @@ data class PropertyList(
             @SerializedName("name") val name: String,
             @SerializedName("owner") val owner: String,
             @SerializedName("total_fund") val totalFund: Float,
-            @SerializedName("roi") val roi: Float,
+            @SerializedName("roi") val roi: String,
             @SerializedName("address") val address: String,
             @SerializedName("ownerImg") val ownerImg: String,
             @SerializedName("galleryImg") val galleryImg: String,
             @SerializedName("diffDate") val diffDate: Int,
-            @SerializedName("funded") val funded: Int,
-            @SerializedName("target") val target: Int,
-            @SerializedName("wishlistId") val wishlist: Int
+            @SerializedName("funded") val funded: Float,
+            @SerializedName("target") val target: Float,
+            @SerializedName("wishlistId") var wishlist: Int,
 
-
-
-
+            var isSelect :Boolean
 
     )
 }

@@ -18,6 +18,7 @@ class ActivityConfirmOtp : AppCompatActivity() {
 
     var id : String ? = null
     var email : String ? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirm_otp)

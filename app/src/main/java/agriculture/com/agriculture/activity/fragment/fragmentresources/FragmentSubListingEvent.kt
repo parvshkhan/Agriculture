@@ -6,12 +6,14 @@ import agriculture.com.agriculture.activity.Blur.Blur
 import agriculture.com.agriculture.activity.modelresponse.EventSubLIstingResponse
 import agriculture.com.agriculture.activity.restclint.RestClinnt
 import agriculture.com.agriculture.activity.restclint.WikiApiService
+import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.DrawerLayout
 import android.text.Html
 import android.text.format.DateFormat
+import android.text.method.ScrollingMovementMethod
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +26,7 @@ import kotlinx.android.synthetic.main.activity_event_sub_event_listing.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -35,6 +38,11 @@ class FragmentSubListingEvent : Fragment() {
 
 
     var idw = 1;
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(CalligraphyContextWrapper.wrap(context))
+
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -145,6 +153,8 @@ class FragmentSubListingEvent : Fragment() {
                     tveventdate.text =  month1.toString() + " "+dayOfWeek1+", "+year1 +" - "+month2.toString() + " "+dayOfWeek2+", "+year2
 
                     tvdescEvent.text = Html.fromHtml(response.body()!!.payload.description)
+                    tvdescEvent.setMovementMethod( ScrollingMovementMethod());
+
 
 
 
@@ -160,7 +170,7 @@ class FragmentSubListingEvent : Fragment() {
                         }
                     }
 
-                    Picasso.get().load(response!!.body()!!.payload.image).placeholder(R.drawable.ic_action_place_holder).transform(blurTransformation).into(imgeventimagesub);
+                    Picasso.get().load(response!!.body()!!.payload.image).placeholder(R.drawable.ic_action_place_holder).into(imgeventimagesub);
 
 
 

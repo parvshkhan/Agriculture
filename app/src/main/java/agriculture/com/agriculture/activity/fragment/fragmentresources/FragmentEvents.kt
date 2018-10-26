@@ -6,6 +6,7 @@ import agriculture.com.agriculture.activity.adapters.EventListAdapter
 import agriculture.com.agriculture.activity.modelresponse.EventResponse
 import agriculture.com.agriculture.activity.restclint.RestClinnt
 import agriculture.com.agriculture.activity.restclint.WikiApiService
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.DrawerLayout
@@ -20,12 +21,18 @@ import kotlinx.android.synthetic.main.fragment_fragment_events.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 /**
  * A simple [Fragment] subclass.
  */
 class FragmentEvents : Fragment() {
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(CalligraphyContextWrapper.wrap(context))
+
+    }
 
     private var lManager : Any?= null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -76,7 +83,7 @@ class FragmentEvents : Fragment() {
             override fun onResponse(call: Call<EventResponse>?, response: Response<EventResponse>?) {
                 if(response!!.body()!!.isSuccess)
                 {
-
+if(rcEvent!=null)
                     rcEvent.adapter = EventListAdapter(response.body() as EventResponse)
 
 

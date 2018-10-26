@@ -54,7 +54,14 @@ dependencies {
     implementation 'com.github.Binary-Finery:Bungee:master-SNAPSHOT'
     implementation "com.orhanobut:hawk:2.0.1"
     compile 'com.mindorks:paracamera:0.2.2'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    kapt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
+    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
+    compile 'de.cketti.share:share-intent-builder:0.0.2'
+    compile 'at.blogc:expandabletextview:1.0.5'
 }
+
+
 
 
 

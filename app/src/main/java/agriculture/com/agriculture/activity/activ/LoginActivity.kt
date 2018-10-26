@@ -5,6 +5,7 @@ import agriculture.com.agriculture.activity.Extra.BaseActivity
 import agriculture.com.agriculture.activity.modelresponse.LoginResponse
 import agriculture.com.agriculture.activity.restclint.RestClinnt
 import agriculture.com.agriculture.activity.restclint.WikiApiService
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
@@ -17,13 +18,16 @@ import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.util.regex.Pattern
 
 class LoginActivity : BaseActivity() {
 
     private var isChecked = false
 
-
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -123,6 +127,7 @@ class LoginActivity : BaseActivity() {
                     Hawk.put<Boolean>("isFirst",false)
                     var intent : Intent? = null
                     intent = Intent(applicationContext, DrawerActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent)
                     finish()
                 }

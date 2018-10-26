@@ -7,19 +7,20 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="2dp"
+        android:layout_width="@dimen/_7sdp"
         android:layout_height="match_parent"
         android:background="@color/colorappmain"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgHamburger"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/greenround"
-        android:padding="8dp"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="6dp"
+        android:paddingRight="4dp"
+        android:layout_marginLeft="4dp"
         android:src="@drawable/ic_action_hamburger"
+        android:background="@drawable/side_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,8 +33,10 @@
         android:layout_marginTop="8dp"
         android:text="@string/myaccount"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/_15ssp"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintBottom_toBottomOf="@id/imgHamburger"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,9 +58,9 @@
         android:id="@+id/constraintLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="12dp"
+
+        android:layout_marginTop="34dp"
         android:background="@color/btsigncolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +81,7 @@
         <Button
             android:id="@+id/button2"
             style="@style/Widget.AppCompat.Button.Colored"
+            fontPath="fonts/opensansparagraph.ttf"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -108,6 +112,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/aboutprofile"
         android:textStyle="bold"
+        fontPath="fonts/opensansparagraph.ttf"
         android:textColor="@color/colorappmain"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
@@ -115,12 +120,11 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15">
@@ -128,6 +132,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
@@ -136,43 +141,77 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/edname"
+                    android:id="@+id/edFirstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/fname"
+                    android:inputType="textPersonName"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey"
-                    android:textSize="@dimen/_15ssp"
-                    android:background="@android:color/transparent"
-                    android:inputType="textPersonName"
-                    android:hint="@string/name" />
+                    android:textSize="@dimen/_15ssp" />
 
                 <TextView
                     android:id="@+id/tvfname"
+                    fontPath="fonts/opensansparagraph.ttf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="@dimen/_15ssp"
                     android:gravity="right"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:text="" />
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
-
-
-
 
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/grey"
                 android:layout_marginTop="2dp"
-                />
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edLastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/lastname"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/_15ssp" />
+
+                <TextView
+                    android:id="@+id/tvedLastName"
+                    fontPath="fonts/opensansparagraph.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/grey" />
 
 
             <LinearLayout
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -183,64 +222,64 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/email"
+                    android:inputType="none"
                     android:textColor="@color/grey"
                     android:textColorHint="@color/grey"
-                    android:textSize="@dimen/_15ssp"
-                    android:background="@android:color/transparent"
-                    android:inputType="textEmailAddress"
-                    android:hint="@string/email" />
+                    android:textSize="@dimen/_15ssp" />
 
                 <TextView
                     android:id="@+id/tvEmail"
+                    fontPath="fonts/opensansparagraph.ttf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="@dimen/_15ssp"
                     android:gravity="right"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:text="" />
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
+
             <View
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/grey"
                 android:layout_marginTop="2dp"
-                />
+                android:background="@color/grey" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:visibility="gone"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/edPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/password"
+                    android:inputType="textPersonName"
                     android:textColor="@color/grey"
                     android:textColorHint="@color/grey"
-                    android:textSize="@dimen/_15ssp"
-                    android:background="@android:color/transparent"
-                    android:inputType="textPersonName"
-                    android:hint="@string/password" />
+                    android:textSize="@dimen/_15ssp" />
 
                 <TextView
                     android:id="@+id/tvpassword"
+                    fontPath="fonts/opensansparagraph.ttf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="@dimen/_15ssp"
                     android:gravity="right"
+                    android:text="TextView"
                     android:textColor="@color/black"
-                    android:text="TextView" />
+                    android:textSize="@dimen/_15ssp" />
 
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -254,61 +293,62 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/phone"
+                    android:inputType="phone"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey"
-                    android:textSize="@dimen/_15ssp"
-                    android:background="@android:color/transparent"
-                    android:inputType="phone"
-                    android:hint="@string/phone" />
+                    android:textSize="@dimen/_15ssp" />
 
                 <TextView
                     android:id="@+id/tvphonenumber"
+                    fontPath="fonts/opensansparagraph.ttf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="@dimen/_15ssp"
                     android:gravity="right"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:text="" />
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/grey"
                 android:layout_marginTop="2dp"
-                />
-
+                android:background="@color/grey" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:visibility="gone"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/edAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/address"
+                    android:inputType="textPersonName"
                     android:textColor="@color/grey"
                     android:textColorHint="@color/grey"
-                    android:textSize="@dimen/_15ssp"
-                    android:background="@android:color/transparent"
-                    android:inputType="textPersonName"
-                    android:hint="@string/address" />
+                    android:textSize="@dimen/_15ssp" />
 
                 <TextView
                     android:id="@+id/tvaddress"
+                    fontPath="fonts/opensansparagraph.ttf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="@dimen/_15ssp"
                     android:gravity="right"
+                    android:text="TextView"
                     android:textColor="@color/black"
-                    android:text="TextView" />
+                    android:textSize="@dimen/_15ssp" />
 
             </LinearLayout>
 
@@ -317,47 +357,74 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:visibility="gone"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/editText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/fname"
+                    android:inputType="textPersonName"
                     android:textColor="@color/grey"
                     android:textColorHint="@color/grey"
-                    android:textSize="@dimen/_15ssp"
-                    android:background="@android:color/transparent"
-                    android:inputType="textPersonName"
-                    android:hint="@string/fname" />
+                    android:textSize="@dimen/_15ssp" />
 
                 <TextView
                     android:id="@+id/textView24"
+                    fontPath="fonts/opensansparagraph.ttf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="@dimen/_15ssp"
                     android:gravity="right"
+                    android:text="TextView"
                     android:textColor="@color/black"
-                    android:text="TextView" />
+                    android:textSize="@dimen/_15ssp" />
 
             </LinearLayout>
 
+            <!--firstName,mobile,image,lastName-->
 
 
-            <Button
-                android:id="@+id/btupdateprofileinfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-
-
-                android:textColor="@color/white"
-                android:background="@drawable/greenbutton"
-                android:layout_marginTop="8dp"
-                android:text="@string/update" />
         </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btchangepassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="@color/brown"
+            android:text="@string/change_password"
+            android:textAllCaps="true"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btupdateprofileinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="@color/colorappmain"
+            android:text="@string/update"
+            android:textColor="@color/white" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

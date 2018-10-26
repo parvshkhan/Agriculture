@@ -8,9 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.activity.activ.PropertyListSub
+import agriculture.com.agriculture.activity.modelresponse.PropertyListSub
+import android.content.Context
 import android.text.Html
 import kotlinx.android.synthetic.main.fragment_detail.*
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+import android.text.method.ScrollingMovementMethod
+
+
 
 
 /**
@@ -19,6 +24,10 @@ import kotlinx.android.synthetic.main.fragment_detail.*
 class FragmentDetail : Fragment() {
 
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(CalligraphyContextWrapper.wrap(context))
+
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -31,6 +40,7 @@ class FragmentDetail : Fragment() {
 
         val data = arguments?.getParcelable<PropertyListSub>("data") as PropertyListSub
         tvfarmdata.text = Html.fromHtml(data.payLoad.farmDetail)
+        tvfarmdata.setMovementMethod(ScrollingMovementMethod())
 
 
     }

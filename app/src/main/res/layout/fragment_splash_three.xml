@@ -13,25 +13,24 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
-        android:fontFamily="@font/archivo_black"
         android:gravity="start"
         android:text="@string/rdytoinvest"
         android:textAlignment="viewStart"
         android:textColor="@color/white"
         android:textSize="@dimen/_25sdp"
         android:textStyle="bold"
+        fontPath="fonts/opensansparagraph.ttf"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
+        fontPath="fonts/opensansparagraph.ttf"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
         android:text="@string/fplaceforyou"
         android:textColor="@color/white"
         android:textSize="@dimen/_15sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView" />
 </android.support.constraint.ConstraintLayout>

@@ -6,6 +6,7 @@ import agriculture.com.agriculture.activity.adapters.PropertyAdapter
 import agriculture.com.agriculture.activity.modelresponse.PropertyList
 import agriculture.com.agriculture.activity.restclint.RestClinnt
 import agriculture.com.agriculture.activity.restclint.WikiApiService
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.DrawerLayout
@@ -18,12 +19,11 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Toast
 import com.orhanobut.hawk.Hawk
-import kotlinx.android.synthetic.main.activity_drawer.*
-import kotlinx.android.synthetic.main.drawer_content_two.*
 import kotlinx.android.synthetic.main.fragment_fragment_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 class FragmentMain : Fragment() {
@@ -37,6 +37,11 @@ class FragmentMain : Fragment() {
 
     val list = mutableListOf<String>()
 
+    override fun onAttach(context: Context?) {
+
+        super.onAttach(CalligraphyContextWrapper.wrap(context))
+
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_fragment_main, container, false)
@@ -77,14 +82,17 @@ class FragmentMain : Fragment() {
 
         val api = RestClinnt.create<WikiApiService>(WikiApiService::class.java)
 
-        api.getFarmList(Hawk.get("id")).enqueue(object : Callback<PropertyList> {
+        api.getFarmList(Hawk.get<Int>("id").toString()).enqueue(object : Callback<PropertyList> {
             override fun onFailure(call: Call<PropertyList>?, t: Throwable?) {
 
+                Toast.makeText(activity,t.toString(),Toast.LENGTH_SHORT).show()
 
             }
 
             override fun onResponse(call: Call<PropertyList>?, response: Response<PropertyList>?) {
-                rc.adapter = PropertyAdapter(((response as Response<PropertyList>).body() as PropertyList))
+                if(response!!.body()!!.isSuccess)
+                    if(response.body()!!.payLoad.size>0)
+                        rc.adapter = PropertyAdapter(((response as Response<PropertyList>).body() as PropertyList))
 
             }
         })

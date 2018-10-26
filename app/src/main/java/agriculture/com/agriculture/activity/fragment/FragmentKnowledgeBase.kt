@@ -2,6 +2,7 @@ package agriculture.com.agriculture.activity.fragment
 
 
 import agriculture.com.agriculture.R
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.DrawerLayout
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.fragment_knowledge_base.*
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 /**
@@ -19,7 +21,10 @@ import kotlinx.android.synthetic.main.fragment_knowledge_base.*
  */
 class FragmentKnowledgeBase : Fragment() {
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(CalligraphyContextWrapper.wrap(context))
 
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -43,12 +48,11 @@ class FragmentKnowledgeBase : Fragment() {
 
         imgintroduction.setOnClickListener {
 
-            val freg=FragmentWebView()
-
             val bundle = Bundle()
-            bundle.putString("url","http://smartit.ventures/farm/Agricultural_project/public/knowledge-base/introduction")
-            freg.arguments = bundle
+            bundle.putString("id","1")
 
+            val freg= FragmentHowitworks2()
+            freg.arguments = bundle
 
             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"intowebviewfrag").addToBackStack(null).commit()
 
@@ -56,27 +60,23 @@ class FragmentKnowledgeBase : Fragment() {
 
 
         imghowitworks.setOnClickListener {
-            val freg=FragmentWebView()
-
             val bundle = Bundle()
-            bundle.putString("url","http://smartit.ventures/farm/Agricultural_project/public/knowledge-base/introduction")
+            bundle.putString("id","2")
+
+            val freg= FragmentHowitworks2()
             freg.arguments = bundle
 
-
             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"intowebviewfrag").addToBackStack(null).commit()
-
 
         }
 
 
-
         imgfarmtypes.setOnClickListener {
-            val freg=FragmentWebView()
-
             val bundle = Bundle()
-            bundle.putString("url","http://smartit.ventures/farm/Agricultural_project/public/knowledge-base/farm_types")
-            freg.arguments = bundle
+            bundle.putString("id","3")
 
+            val freg= FragmentHowitworks2()
+            freg.arguments = bundle
 
             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"intowebviewfrag").addToBackStack(null).commit()
 
@@ -85,24 +85,28 @@ class FragmentKnowledgeBase : Fragment() {
 
 
         imgaccnt.setOnClickListener {
-            val freg=FragmentWebView()
+//            val bundle = Bundle()
+//            bundle.putString("id","4")
 
-            val bundle = Bundle()
-            bundle.putString("url","http://smartit.ventures/farm/Agricultural_project/public/knowledge-base/your_account")
-            freg.arguments = bundle
+            val freg= FragmentMyAccount()
+//            freg.arguments = bundle
+
 
 
             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"intowebviewfrag").addToBackStack(null).commit()
-
         }
 
 
         imgregulationandpolicies.setOnClickListener {
-            val freg=FragmentWebView()
 
             val bundle = Bundle()
-            bundle.putString("url","http://smartit.ventures/farm/Agricultural_project/public/knowledge-base/regulation_policies")
+
+            bundle.putString("id","5")
+
+            val freg= FragmentHowitworks2()
             freg.arguments = bundle
+
+
 
 
             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"intowebviewfrag").addToBackStack(null).commit()
@@ -111,14 +115,13 @@ class FragmentKnowledgeBase : Fragment() {
 
 
         imgfaqandgallery.setOnClickListener {
-            val freg=FragmentWebView()
-
             val bundle = Bundle()
-            bundle.putString("url","http://smartit.ventures/farm/Agricultural_project/public/knowledge-base/faq_glossary")
+            bundle.putString("id","6")
+
+            val freg= FragmentHowitworks2()
             freg.arguments = bundle
 
-
-            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"intowebviewfrag").addToBackStack(null).commit()
+            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"intowebviewfrag").addToBackStack("intowebviewfrag").commit()
 
 
         }

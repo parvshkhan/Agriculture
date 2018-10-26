@@ -8,19 +8,20 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="2dp"
+        android:layout_width="@dimen/_7sdp"
         android:layout_height="match_parent"
         android:background="@color/colorappmain"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgHamburger"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/greenround"
-        android:padding="8dp"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="6dp"
+        android:paddingRight="4dp"
+        android:layout_marginLeft="4dp"
         android:src="@drawable/ic_action_hamburger"
+        android:background="@drawable/side_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,7 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/basic"
         android:text="Search"
         android:textColor="@android:color/black"
         android:textSize="@dimen/_15ssp"
@@ -47,8 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:fontFamily="sans-serif"
         android:text="FILTER"
+        fontPath="fonts/opensansparagraph.ttf"
         android:textAlignment="viewEnd"
         android:textColor="@color/colorappmain"
         android:textSize="@dimen/_13ssp"
@@ -145,7 +145,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/allerta"
         android:text="@string/earchresut"
         android:textColor="@color/grey"
         android:textStyle="bold"

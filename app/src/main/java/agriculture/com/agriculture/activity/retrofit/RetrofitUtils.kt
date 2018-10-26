@@ -1,9 +1,7 @@
 package agriculture.com.agriculture.activity.retrofit
 
-import agriculture.com.agriculture.activity.activ.DrawerActivity
-import agriculture.com.agriculture.activity.activ.PropertyListSub
+import agriculture.com.agriculture.activity.modelresponse.PropertyListSub
 import agriculture.com.agriculture.activity.activ.SubListingActivity
-import agriculture.com.agriculture.activity.modelresponse.PropertyList
 import agriculture.com.agriculture.activity.callback.ICallback
 import agriculture.com.agriculture.activity.restclint.RestClinnt
 import agriculture.com.agriculture.activity.restclint.WikiApiService
@@ -40,5 +38,8 @@ class RetrofitUtils(ctx: Context) {
             }
         })
     }
+
+
+
 }
 

@@ -7,12 +7,27 @@
     android:background="@drawable/bgmain"
     tools:context="agriculture.com.agriculture.activity.activ.MainActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btSignIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoo" />
+
+
     <Button
         android:id="@+id/btSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_50sdp"
         android:background="@drawable/radiusrightsignin"
-        android:fontFamily="serif"
+
         android:padding="@dimen/_4sdp"
         android:text="@string/signin"
         android:textColor="@color/colorappmain"
@@ -22,15 +37,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39999998" />
+        app:layout_constraintVertical_bias="0.45" />
 
     <Button
         android:id="@+id/btLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_50sdp"
         android:layout_marginTop="16dp"
         android:background="@drawable/radiusleftsignup"
-        android:fontFamily="serif"
+
         android:padding="@dimen/_4sdp"
         android:text="@string/signup"
         android:textColor="@color/colorappmain"

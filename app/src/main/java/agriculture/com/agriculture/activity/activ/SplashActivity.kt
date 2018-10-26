@@ -5,6 +5,7 @@ import agriculture.com.agriculture.activity.Extra.BaseActivity
 import agriculture.com.agriculture.activity.fragment.splashfragment.FragmentSplashOne
 import agriculture.com.agriculture.activity.fragment.splashfragment.FragmentSplashThree
 import agriculture.com.agriculture.activity.fragment.splashfragment.FragmentSplashTwo
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -15,9 +16,17 @@ import android.view.View
 import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_splash.*
 import spencerstudios.com.bungeelib.Bungee
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+
+
 
 
 class SplashActivity : BaseActivity(), ViewPager.OnPageChangeListener {
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    }
+
     override fun onPageScrollStateChanged(state: Int) {
     }
 

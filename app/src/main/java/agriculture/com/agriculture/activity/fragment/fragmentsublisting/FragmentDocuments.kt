@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.activity.activ.PropertyListSub
+import agriculture.com.agriculture.activity.modelresponse.PropertyListSub
+import android.content.Context
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 /**
@@ -16,6 +18,10 @@ import agriculture.com.agriculture.activity.activ.PropertyListSub
  */
 class FragmentDocuments : Fragment() {
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(CalligraphyContextWrapper.wrap(context))
+
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -27,7 +33,10 @@ class FragmentDocuments : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val data = arguments?.getParcelable<PropertyListSub>("data") as PropertyListSub
-//        tvdocument.text = Html.fromHtml(data.payLoad.documentFile)
+
+
+
+
     }
 
-}// Required empty public constructor
+}

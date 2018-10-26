@@ -140,7 +140,7 @@ class EventListAdapter(evenlist: EventResponse) : RecyclerView.Adapter<EventList
             }
         }
 
-        Picasso.get().load(dataList!!.payload.get(position).image).placeholder(R.drawable.ic_action_place_holder).transform(blurTransformation).into(holder.itemView.imgeventimage);
+        Picasso.get().load(dataList!!.payload.get(position).image).placeholder(R.drawable.ic_action_place_holder).into(holder.itemView.imgeventimage);
 
     }
 

@@ -47,8 +47,8 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
         holder.itemView.tvbloglistopen.setOnClickListener({p ->
 
         val freg=FragmentBlogs()
-
-            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"blogfrah").commitNow()
+            (context as AppCompatActivity).supportFragmentManager.popBackStack();
+            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"blogfrah").commit()
 
         })
 
@@ -56,14 +56,15 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
        holder.itemView.tvEventOpen.setOnClickListener({p ->
 
         val freg=FragmentEvents()
-
-            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"eventfrag").commitNow()
+           (context as AppCompatActivity).supportFragmentManager.popBackStack();
+            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"eventfrag").commit()
 
         })
 
         holder.itemView.tvknowledgebase.setOnClickListener({p->
             val freg=FragmentKnowledgeBase()
-            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"knowledgefrag").commitNow()
+            (context as AppCompatActivity).supportFragmentManager.popBackStack();
+            (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,freg,"knowledgefrag").commit()
 
         }
      )
@@ -99,21 +100,21 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
 
                         if(position == 2)
                         {
-
+                            (context as AppCompatActivity).supportFragmentManager.popBackStack();
                             val frag : FragmentMain? = FragmentMain()
                             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"mainfrag").commit()
                         }
 
 
                         if(position == 0 )
-                        {
+                        { (context as AppCompatActivity).supportFragmentManager.popBackStack();
                             val frag : FragmentMyAccount? = FragmentMyAccount()
                             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"accntfrag").commit()
 
                         }
 
                         if(position == 1)
-                        {
+                        { (context as AppCompatActivity).supportFragmentManager.popBackStack();
                             val frag : FragmentInvestmentPlans? = FragmentInvestmentPlans()
                             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"investmentplanfrag").commit()
 
@@ -121,7 +122,7 @@ class DrawerAdapter(listData : MutableList<String>) : RecyclerView.Adapter<Drawe
                         }
 
                         if(position == 5)
-                        {
+                        { (context as AppCompatActivity).supportFragmentManager.popBackStack();
                             val frag : FragmentWishList? = FragmentWishList()
                             (context as AppCompatActivity).supportFragmentManager.beginTransaction().replace(R.id.drawercontainer,frag,"wishlistfrag").commit()
                         }

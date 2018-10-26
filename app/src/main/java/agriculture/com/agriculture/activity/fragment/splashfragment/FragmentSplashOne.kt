@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import agriculture.com.agriculture.R
+import android.content.Context
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 /**
@@ -15,6 +17,11 @@ import agriculture.com.agriculture.R
  */
 class FragmentSplashOne : Fragment() {
 
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(CalligraphyContextWrapper.wrap(context))
+
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment

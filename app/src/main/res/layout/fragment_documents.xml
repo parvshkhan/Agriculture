@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     tools:context="agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentDocuments">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tvdocument"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcdocuments"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/hello_blank_fragment"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </android.support.constraint.ConstraintLayout>

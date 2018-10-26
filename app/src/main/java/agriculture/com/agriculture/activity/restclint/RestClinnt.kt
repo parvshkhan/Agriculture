@@ -1,5 +1,5 @@
 package agriculture.com.agriculture.activity.restclint
-import agriculture.com.agriculture.activity.activ.PropertyListSub
+import agriculture.com.agriculture.activity.modelresponse.PropertyListSub
 import agriculture.com.agriculture.activity.modelresponse.*
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -10,7 +10,7 @@ import retrofit2.http.*
 class RestClinnt {
 
     companion object Factory {
-//        val ROOT_URL = "http://192.168.0.40/Agricultural_project/public/api/"
+//                val ROOT_URL = "http://192.168.0.40/Agricultural_project/public/api/"
         val ROOT_URL = "http://smartit.ventures/farm/Agricultural_project/public/api/"
         fun <T> create(java: Class<WikiApiService>): WikiApiService {
             val retrofit = Retrofit.Builder()
@@ -27,7 +27,7 @@ class RestClinnt {
 
 interface WikiApiService {
     @POST("getAllPropertyList")
-    fun getFarmList(@Query("id") id: String) : Call<PropertyList>
+    fun getFarmList(@Query("userId") id: String) : Call<PropertyList>
 
     @POST("getPropertyByParticularId")
     fun getSubFarmList(@Query("id") id: String): Call<PropertyListSub>
@@ -66,7 +66,29 @@ interface WikiApiService {
 
     @Multipart
     @POST("UpdateProfile")
-     fun updateProfile( @Part("id") id: RequestBody,@Part("firstName") fName: RequestBody,@Part("image\"; filename=\"pp.png\" ") file: RequestBody, @Part("mobile") mobile: RequestBody): Call<ResponseUpdateProfile>
+    fun updateProfile( @Part("id") id: RequestBody,@Part("firstName") fName: RequestBody,@Part("image\"; filename=\"pp.png\" ") file: RequestBody, @Part("mobile") mobile: RequestBody): Call<ResponseUpdateProfile>
 
+
+    @FormUrlEncoded
+    @POST("getWishlist")
+    fun getwishlist(@Field("userId") userid : String): Call<PropertyList>
+
+
+    @FormUrlEncoded
+    @POST("storeWishlist")    // same for adding and removing
+    fun addWishList(@Field("userId") userid : String,@Field("propertyId") pid : String): Call<AddRemoveWishlist>
+
+    @FormUrlEncoded
+    @POST("storeWishlist")    // same for adding and removing
+    fun removeWishList(@Field("id") id : String ): Call<RemoveWishListResponse>
+
+
+    @FormUrlEncoded
+    @POST("getInvestmentPlanByParticularId")    // same for adding and removing
+    fun comonintro(@Field("id") id : String ): Call<InvestmentCommonIntroResponse>
+
+
+    @GET("getAllInvestmentPlan")
+    fun investment(): Call<InvestmentDetailResponse>
 
 }

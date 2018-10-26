@@ -5,7 +5,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next">Next</string>
     <string name="dpnearyou">Discover \nPlace Near \nYou</string>
-    <string name="fplaceforyou">Find the best place you \nwant by your location or \nneighborhood</string>
+    <string name="fplaceforyou">Find the best place you \nwant by your location \nor neighborhood</string>
     <string name="splacesily">Search for \nPlace Easily</string>
     <string name="rdytoinvest">Ready to \ninvest in this \nplace</string>
     <string name="getstarted">Get Started</string>
@@ -14,7 +14,7 @@
     <string name="login">login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="forgetpassword">Forget Password ?</string>
+    <string name="forgetpassword">Forget Password?</string>
     <string name="forgetpassword2">Forget Password </string>
     <string name="register">REGISTER</string>
     <string name="username">UserName</string>
@@ -77,4 +77,9 @@
     <string name="yraccnt">Your Account</string>
     <string name="regulationandpolicies"><![CDATA[Regulation & \n Policies]]></string>
     <string name="faqandglossary"><![CDATA[FAQ & Glossary]]></string>
+    <string name="lastname">Last Name</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="change_password">Change Password</string>
+    <string name="emailnoneditable">Email(Non Edit)</string>
+    <string name="howitworks">How It Works</string>
 </resources>

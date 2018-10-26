@@ -7,6 +7,7 @@ import agriculture.com.agriculture.activity.fragment.fragmentsublisting.Fragment
 import agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentDocuments
 import agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentInvestMentCase
 import agriculture.com.agriculture.activity.fragment.fragmentsublisting.FragmentOverview
+import agriculture.com.agriculture.activity.modelresponse.PropertyListSub
 import agriculture.com.agriculture.activity.retrofit.RetrofitUtils
 import android.content.Context
 import android.graphics.Bitmap
@@ -28,11 +29,18 @@ import com.squareup.picasso.Transformation
 import kotlinx.android.synthetic.main.activity_sub_listing.*
 import kotlinx.android.synthetic.main.activity_sub_listing.view.*
 import retrofit2.Response
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+import de.cketti.shareintentbuilder.ShareIntentBuilder
+import android.content.Intent
+
+
 
 
 class SubListingActivity : AppCompatActivity(),ICallback {
 
-
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,17 +53,19 @@ class SubListingActivity : AppCompatActivity(),ICallback {
             rtData.getSubListData(id)
         }
 
-
         imbacksublisting.setOnClickListener {
             finish()
         }
 
+        imgshare.setOnClickListener {
+            val shareIntent = ShareIntentBuilder.from(applicationContext)
+                    .text("Text to share")
+                    .build()
 
-
+            startActivity(shareIntent)
+        }
 
     }
-
-
 
     private class MyAdapter(fm: android.support.v4.app.FragmentManager,data : PropertyListSub) : FragmentStatePagerAdapter(fm)
     {
@@ -152,6 +162,20 @@ class SubListingActivity : AppCompatActivity(),ICallback {
 
         val dataSubListing = ((apiresponse as Response<PropertyListSub>).body() as PropertyListSub)
 
+        if(dataSubListing.payLoad.wishlist == 0)
+        {
+            imageView9.background = null
+            imageView9.setImageResource(R.drawable.heart_off)
+
+        }
+        else
+        {
+            imageView9.background = null
+            imageView9.setImageResource(R.drawable.heart_off)
+
+        }
+
+//
 
 
         vPager.adapter = MyAdapter(supportFragmentManager, dataSubListing)
@@ -170,7 +194,9 @@ class SubListingActivity : AppCompatActivity(),ICallback {
         setGalleryImage(dataSubListing)
 
         tvownername.text = dataSubListing!!.payLoad.owner
-        tvfarmaddress.text = dataSubListing!!.payLoad.name
+        tvfarmaddress.text = dataSubListing!!.payLoad.address
+        imageView10.background = null
+        Picasso.get().load(dataSubListing!!.payLoad.ownerImg).placeholder(R.drawable.ic_action_place_holder).into(imageView10);
 
 
     }

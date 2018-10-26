@@ -1,23 +1,18 @@
 package agriculture.com.agriculture.activity.adapters
 
 import agriculture.com.agriculture.R
-import agriculture.com.agriculture.activity.Blur.Blur
 import agriculture.com.agriculture.activity.modelresponse.BlogResponse
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Bitmap
 import android.support.v7.widget.RecyclerView
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
-import com.squareup.picasso.Transformation
 import kotlinx.android.synthetic.main.row_blog.view.*
 import java.text.SimpleDateFormat
 import java.util.*
-
-
 
 
 class BlogAdapter(blogList: BlogResponse) : RecyclerView.Adapter<BlogAdapter.MyViewHolder>() {
@@ -38,8 +33,8 @@ class BlogAdapter(blogList: BlogResponse) : RecyclerView.Adapter<BlogAdapter.MyV
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
 
-        holder.itemView.tvblogtitile.text=dataList!!.payload.get(position).postBy
-        holder.itemView.tvbloggername.text= dataList!!.payload.get(position).title
+        holder.itemView.tvblogtitile.text=dataList!!.payload.get(position).title
+        holder.itemView.tvbloggername.text= dataList!!.payload.get(position).postBy
         holder.itemView.textView26.text= Html.fromHtml(dataList!!.payload.get(position).description)
 
         val dataArr = dataList!!.payload.get(position).createdAt.split(" ")
@@ -59,21 +54,24 @@ class BlogAdapter(blogList: BlogResponse) : RecyclerView.Adapter<BlogAdapter.MyV
         holder.itemView.textView28.text = year.toString()
 
 
-//        imgProperty
+        Picasso.get().load(dataList!!.payload.get(position).image).placeholder(R.drawable.ic_action_place_holder).into(holder.itemView.imagewishlist);
 
-        val blurTransformation = object : Transformation {
-            override fun transform(source: Bitmap): Bitmap {
-                val blurred = Blur.fastblur(context, source, 1)
-                source.recycle()
-                return blurred
+
+        holder.itemView.textView27.setOnClickListener {
+            if(holder.itemView.textView26.isExpanded)
+            {
+                holder.itemView.textView26.collapse()
+                holder.itemView.textView27.text = "Read More >"
+            }
+            else
+            {
+                holder.itemView.textView26.expand()
+                holder.itemView.textView27.text = "Read Less <"
             }
 
-            override fun key(): String {
-                return "blur()"
-            }
+
+
         }
-
-        Picasso.get().load(dataList!!.payload.get(position).image).placeholder(R.drawable.ic_action_place_holder).transform(blurTransformation).into(holder.itemView.imgblogimage);
 
     }
 

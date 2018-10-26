@@ -5,6 +5,7 @@ import agriculture.com.agriculture.activity.Extra.BaseActivity
 import agriculture.com.agriculture.activity.modelresponse.SignUpResponse
 import agriculture.com.agriculture.activity.restclint.RestClinnt
 import agriculture.com.agriculture.activity.restclint.WikiApiService
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
@@ -17,12 +18,17 @@ import kotlinx.android.synthetic.main.activity_signup.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+import java.util.regex.Pattern
 
 class SignUpActivity : BaseActivity() {
 
     private var isCheckedOne = false
     private var isCheckedTwo = false
 
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -116,11 +122,16 @@ class SignUpActivity : BaseActivity() {
         if (rgusername.text.isNotEmpty() && rgemail.text.isNotEmpty() && rguserPassword.text.isNotEmpty())
         {
             if(rguserPassword.text.toString() == rgusercfmPassword.text.toString())
-            signUpwithUserNamePassword(rgusername.text.toString(),rgemail.text.toString(),rguserPassword.text.toString())
-            else{
-                rguserPassword.setError("Not match")
-                rgusercfmPassword.setError("Not match")
-            }
+                if(isEmailValid(rgemail.text.toString()))
+                    signUpwithUserNamePassword(rgusername.text.toString(),rgemail.text.toString(),rguserPassword.text.toString())
+                else
+                {
+                    rgemail.setError("Invalid Email")
+                }
+                else{
+                    rguserPassword.setError("Not match")
+                    rgusercfmPassword.setError("Not match")
+                }
         }
         else
         {
@@ -162,7 +173,7 @@ class SignUpActivity : BaseActivity() {
 
         api.getSignUpResponse(username,email,password).enqueue(object : Callback<SignUpResponse> {
             override fun onFailure(call: Call<SignUpResponse>?, t: Throwable?) {
-Toast.makeText(applicationContext,t.toString(),Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext,t.toString(),Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<SignUpResponse>?, response: Response<SignUpResponse>?) {
@@ -175,6 +186,7 @@ Toast.makeText(applicationContext,t.toString(),Toast.LENGTH_SHORT).show()
 
                     var intent : Intent? = null
                     intent = Intent(applicationContext, DrawerActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(intent)
                     finish()
 
@@ -192,5 +204,11 @@ Toast.makeText(applicationContext,t.toString(),Toast.LENGTH_SHORT).show()
 
 
 
+    }
+    fun isEmailValid(email: String): Boolean {
+        val expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"
+        val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
+        val matcher = pattern.matcher(email)
+        return matcher.matches()
     }
 }
